@@ -1,0 +1,46 @@
+.button-17 {
+    -fx-alignment: center;
+    -fx-background-color: white;
+    -fx-background-radius: 24px;
+    -fx-border-width: 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0, 0, 3),
+                 dropshadow(gaussian, rgba(0, 0, 0, 0.14), 10, 0, 0, 6),
+                 dropshadow(gaussian, rgba(0, 0, 0, 0.12), 18, 0, 0, 1);
+    -fx-text-fill: #3c4043;
+    -fx-cursor: hand;
+    -fx-font-family: "Roboto", Arial, sans-serif;
+    -fx-font-size: 14px;
+    -fx-font-weight: 500;
+    -fx-min-height: 48px;
+    -fx-padding: 2px 24px;
+    -fx-text-alignment: center;
+    -fx-transition: all 280ms cubic-bezier(0.4, 0, 0.2, 1);
+    -fx-width: auto;
+    -fx-user-select: none;
+    -fx-z-index: 0;
+}
+
+.button-17:hover {
+    -fx-background-color: #F6F9FE;
+    -fx-text-fill: #174ea6;
+    -fx-effect: dropshadow(gaussian, rgba(60, 64, 67, 0.3), 3, 0, 0, 2),
+                 dropshadow(gaussian, rgba(60, 64, 67, 0.15), 10, 0, 0, 4);
+}
+
+.button-17:pressed {
+    -fx-effect: dropshadow(gaussian, rgba(60, 64, 67, 0.3), 4, 0, 0, 4),
+                 dropshadow(gaussian, rgba(60, 64, 67, 0.15), 12, 0, 0, 8);
+}
+
+.button-17:focused {
+    -fx-border-color: #4285f4;
+    -fx-border-width: 2px;
+    -fx-border-style: solid;
+    -fx-effect: dropshadow(gaussian, rgba(60, 64, 67, 0.3), 3, 0, 0, 1),
+                 dropshadow(gaussian, rgba(60, 64, 67, 0.15), 8, 0, 0, 4);
+}
+
+.button-17:disabled {
+    -fx-effect: dropshadow(gaussian, rgba(60, 64, 67, 0.3), 3, 0, 0, 1),
+                 dropshadow(gaussian, rgba(60, 64, 67, 0.15), 8, 0, 0, 4);
+}

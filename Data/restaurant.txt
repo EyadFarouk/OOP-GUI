@@ -1,0 +1,30 @@
+karam al sham
+cairo
+19601
+4.0
+shorma
+bread with chicken
+50.0
+chicken
+4.5
+fata
+rise with chicken
+75.0
+chicken
+4.0
+
+gad
+Elraml Station
+19567
+4.0
+burger
+bread with meat
+30.0
+meat
+4.0
+pizza
+bread with vegatbles
+50.0
+breads
+3.0
+
