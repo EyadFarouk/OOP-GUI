@@ -143,7 +143,7 @@ abstract public class User implements checkNumberValid {
      */
     private String checkNoNumbers(String name){
         while(true){
-            if(name.matches(".*\\d.*") && name.matches("^.*[@#$%^&-+=()].*"))
+            if(name.matches(".*\\d.*") || name.matches("^.*[@#$%^&-+=()].*"))
             {
                 Scanner scanner=new Scanner(System.in);
                 System.out.print("The name can't contain numbers or special characters: ");

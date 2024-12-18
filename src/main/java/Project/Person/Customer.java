@@ -15,6 +15,18 @@ public class Customer extends User implements saveAndLoad {
     String deliveryAddress;
     public static List<Customer> userList=new ArrayList<>();
 
+//    public Customer(String Fname,String Lname,String email,String phone,int age,String address,String deliveryAddress,String password,String gender) {
+//        this.Fname=Fname;
+//        this.Lname=Lname;
+//        this.email=email;
+//        this.phone=phone;
+//        this.age=age;
+//        this.address=address;
+//        this.deliveryAddress=deliveryAddress;
+//        this.password=password;
+//        this.gender=gender;
+//    }
+
     /**
      * This method is used to display the details of the user
      */
