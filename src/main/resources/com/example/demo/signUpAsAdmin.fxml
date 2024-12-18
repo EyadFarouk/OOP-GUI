@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,75 +12,166 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SceneChanger">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="769.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.AdminSignUpController">
    <children>
       <ImageView fitHeight="584.0" fitWidth="907.0" layoutX="-299.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../imgs/Kitchen.png" />
          </image>
       </ImageView>
-      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#58626b" height="626.0" layoutX="301.0" layoutY="-15.0" stroke="BLACK" strokeType="INSIDE" width="311.0" />
-      <Label layoutX="405.0" prefHeight="49.0" prefWidth="103.0" text="SignUp" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#58626b" height="620.0" layoutX="385.0" layoutY="-14.0" stroke="BLACK" strokeType="INSIDE" width="384.0" />
+      <Label layoutX="537.0" layoutY="1.0" prefHeight="49.0" prefWidth="103.0" text="SignUp" textAlignment="CENTER" textFill="WHITE" wrapText="true">
          <font>
             <Font size="25.0" />
          </font>
       </Label>
-      <TextField layoutX="414.0" layoutY="117.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="344.0" layoutY="117.0" text="Email :">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <TextField layoutX="414.0" layoutY="264.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="312.0" layoutY="264.0" text="Password:">
-         <font>
-            <Font size="19.0" />
-         </font>
-      </Label>
-      <Button layoutX="384.0" layoutY="449.0" mnemonicParsing="false" onAction="#switchSceneToAdminLoginOrSignUp" prefHeight="49.0" prefWidth="148.0" text="Back">
+      <Button layoutX="541.0" layoutY="449.0" mnemonicParsing="false" onAction="#switchSceneToadminLoginOrSignUp" prefHeight="49.0" prefWidth="148.0" text="Back">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <Button layoutX="384.0" layoutY="377.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="148.0" text="Login">
+      <Button alignment="CENTER" layoutX="539.0" layoutY="368.0" mnemonicParsing="false" onAction="#validateInputAndSignUp" prefHeight="49.0" prefWidth="148.0" text="Login">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <TextField layoutX="416.0" layoutY="49.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="306.0" layoutY="49.0" text="First name:">
+      <TextField fx:id="firstName" layoutX="573.0" layoutY="50.0" onInputMethodTextChanged="#checkIfFnameValid" onKeyReleased="#checkIfFnameValid" prefHeight="24.0" prefWidth="184.0" promptText="Enter your first name">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="463.0" layoutY="50.0" text="First name:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField layoutX="415.0" layoutY="82.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="307.0" layoutY="82.0" text="Last name:">
+      <TextField fx:id="lastName" layoutX="572.0" layoutY="83.0" onInputMethodTextChanged="#checkIfLnameValid" onKeyReleased="#checkIfLnameValid" prefHeight="24.0" prefWidth="184.0" promptText="Enter your last name">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="464.0" layoutY="83.0" text="Last name:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField layoutX="414.0" layoutY="157.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="309.0" layoutY="157.0" text="Phone no.:">
+      <TextField fx:id="email" layoutX="571.0" layoutY="118.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="24.0" prefWidth="184.0" promptText="Enter your email">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="501.0" layoutY="118.0" text="Email :">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField layoutX="414.0" layoutY="193.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="362.0" layoutY="193.0" text="Age:">
+      <TextField fx:id="phone" layoutX="571.0" layoutY="158.0" onInputMethodTextChanged="#checkPhoneEmpty" onKeyReleased="#checkPhoneEmpty" prefHeight="24.0" prefWidth="184.0" promptText="Enter your phone number">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="466.0" layoutY="158.0" text="Phone no.:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <TextField layoutX="414.0" layoutY="232.0" prefHeight="24.0" prefWidth="184.0" />
-      <Label layoutX="321.0" layoutY="232.0" text="Address:">
+      <TextField fx:id="age" layoutX="571.0" layoutY="194.0" onInputMethodTextChanged="#checkAgeEmpty" onKeyReleased="#checkAgeEmpty" prefHeight="24.0" prefWidth="184.0" promptText="Enter your age">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="519.0" layoutY="194.0" text="Age:">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <ChoiceBox layoutX="431.0" layoutY="299.0" prefWidth="150.0" />
-      <Label layoutX="327.0" layoutY="299.0" text="Gender">
+      <TextField fx:id="address" layoutX="571.0" layoutY="233.0" prefHeight="24.0" prefWidth="184.0" promptText="Enter your address">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></TextField>
+      <Label layoutX="478.0" layoutY="233.0" text="Address:">
          <font>
             <Font size="19.0" />
+         </font>
+      </Label>
+      <PasswordField fx:id="password" layoutX="570.0" layoutY="268.0" onInputMethodTextChanged="#checkPassword" onKeyReleased="#checkPassword" prefHeight="24.0" prefWidth="184.0" promptText="Enter your passoword">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor></PasswordField>
+      <Label layoutX="469.0" layoutY="268.0" text="Password:">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <ChoiceBox fx:id="gender" layoutX="588.0" layoutY="309.0" prefWidth="150.0" />
+      <Label layoutX="490.0" layoutY="309.0" text="Gender">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label fx:id="Fname_label" alignment="CENTER" layoutY="45.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Lname_label" alignment="CENTER" layoutY="78.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Email_label" alignment="CENTER" layoutY="113.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Phone_label" alignment="CENTER" layoutY="153.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Age_label" alignment="CENTER" layoutY="189.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Address_label" alignment="CENTER" layoutY="228.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Delievery_label" alignment="CENTER" layoutY="263.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="Password_label" alignment="CENTER" layoutY="263.0" prefHeight="34.0" prefWidth="384.0" text="* The password should contain:" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Small_label" alignment="CENTER" layoutY="304.0" prefHeight="34.0" prefWidth="384.0" text="-Small letter" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Capital_label" alignment="CENTER" layoutY="345.0" prefHeight="34.0" prefWidth="384.0" text="-Capital letter" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Special_label" alignment="CENTER" layoutY="383.0" prefHeight="34.0" prefWidth="384.0" text="-Special character" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Number_label" alignment="CENTER" layoutY="423.0" prefHeight="34.0" prefWidth="384.0" text="-Number " textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Eight_label" alignment="CENTER" layoutY="464.0" prefHeight="34.0" prefWidth="384.0" text="-At least 8 characters" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Space_label" alignment="CENTER" layoutY="505.0" prefHeight="34.0" prefWidth="384.0" text="And it can't contain spaces" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
    </children>

@@ -98,7 +98,7 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <PasswordField fx:id="password" layoutX="570.0" layoutY="304.0" prefHeight="24.0" prefWidth="184.0" promptText="Enter your passoword">
+      <PasswordField fx:id="password" layoutX="570.0" layoutY="304.0" onInputMethodTextChanged="#checkPassword" onKeyReleased="#checkPassword" prefHeight="24.0" prefWidth="184.0" promptText="Enter your passoword">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></PasswordField>
@@ -123,39 +123,64 @@
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Email_label" alignment="CENTER" layoutY="113.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Email_label" alignment="CENTER" layoutY="113.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Phone_label" alignment="CENTER" layoutY="153.0" onInputMethodTextChanged="#checkPhoneEmpty" onKeyReleased="#checkPhoneEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Phone_label" alignment="CENTER" layoutY="153.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Age_label" alignment="CENTER" layoutY="189.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Age_label" alignment="CENTER" layoutY="189.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Address_label" alignment="CENTER" layoutY="228.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Address_label" alignment="CENTER" layoutY="228.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Delievery_label" alignment="CENTER" layoutY="263.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Delievery_label" alignment="CENTER" layoutY="263.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="15.0" />
          </font>
       </Label>
-      <Label fx:id="Password_label" alignment="CENTER" layoutY="299.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Password_label" alignment="CENTER" layoutY="299.0" prefHeight="34.0" prefWidth="384.0" text="* The password should contain:" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
-      <Label fx:id="Gender_label" alignment="CENTER" layoutY="340.0" onInputMethodTextChanged="#checkEmailEmpty" onKeyReleased="#checkEmailEmpty" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+      <Label fx:id="Small_label" alignment="CENTER" layoutY="340.0" prefHeight="34.0" prefWidth="384.0" text="-Small letter" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
-            <Font name="System Bold Italic" size="15.0" />
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Capital_label" alignment="CENTER" layoutY="381.0" prefHeight="34.0" prefWidth="384.0" text="-Capital letter" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Special_label" alignment="CENTER" layoutY="419.0" prefHeight="34.0" prefWidth="384.0" text="-Special character" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Number_label" alignment="CENTER" layoutY="459.0" prefHeight="34.0" prefWidth="384.0" text="-Number " textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Eight_label" alignment="CENTER" layoutY="500.0" prefHeight="34.0" prefWidth="384.0" text="-At least 8 characters" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
+         </font>
+      </Label>
+      <Label fx:id="Space_label" alignment="CENTER" layoutY="541.0" prefHeight="34.0" prefWidth="384.0" text="And it can't contain spaces" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
+         <font>
+            <Font name="System Bold Italic" size="21.0" />
          </font>
       </Label>
    </children>

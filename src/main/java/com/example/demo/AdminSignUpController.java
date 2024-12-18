@@ -1,6 +1,6 @@
 package com.example.demo;
 
-import Project.Person.Customer;
+import Project.Person.Admin;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -21,9 +21,9 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static Project.Person.Customer.userList;
+import static Project.Person.Admin.adminList;
 
-public class CustomerSignUpController implements Initializable {
+public class AdminSignUpController implements Initializable {
 
     private Scene scene;
     private Stage stage;
@@ -128,20 +128,20 @@ public class CustomerSignUpController implements Initializable {
     }
 
     public void checkEmailEmpty(){
-     if (email.getText().isEmpty()) {
-         Email_label.setTextFill(Color.DARKORANGE);
-         Email_label.setText("The email cannot be empty");
-         Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
-     }else{
-         if(email.getText().endsWith("@gmail.com")||email.getText().endsWith("@yahoo.com")||email.getText().endsWith("@outlook.com")||email.getText().endsWith("@email.com")){
-             Email_label.setText("");
-         }
-         else {
-             Email_label.setTextFill(Color.DARKORANGE);
-             Email_label.setText("The email in invalid");
-             Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
-         }
-     }
+        if (email.getText().isEmpty()) {
+            Email_label.setTextFill(Color.DARKORANGE);
+            Email_label.setText("The email cannot be empty");
+            Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
+        }else{
+            if(email.getText().endsWith("@gmail.com")||email.getText().endsWith("@yahoo.com")||email.getText().endsWith("@outlook.com")||email.getText().endsWith("@email.com")){
+                Email_label.setText("");
+            }
+            else {
+                Email_label.setTextFill(Color.DARKORANGE);
+                Email_label.setText("The email in invalid");
+                Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
+            }
+        }
     }
 
     public void checkPhoneEmpty(){
@@ -253,19 +253,18 @@ public class CustomerSignUpController implements Initializable {
                 ||!(deliveryAddress.getText().isEmpty())
                 ||!(address.getText().isEmpty())
                 ||Phone_label.getTextFill()==Color.GREEN){
-            Customer customer = new Customer();
-            customer.setFname(firstName.getText());
-            customer.setLname(lastName.getText());
-            customer.setEmail(email.getText());
-            customer.setPhone(phone.getText());
-            customer.setAge(Integer.parseInt(age.getText()));
-            customer.setAddress(address.getText());
-            customer.setDeliveryAddress(deliveryAddress.getText());
-            customer.setPassword(password.getText());
-            customer.setGender(gender.getValue());
-            userList.add(customer);
-            userList.getLast().displayUserInfo();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginAsCustomer.fxml"));
+            Admin admin = new Admin();
+            admin.setFname(firstName.getText());
+            admin.setLname(lastName.getText());
+            admin.setEmail(email.getText());
+            admin.setPhone(phone.getText());
+            admin.setAge(Integer.parseInt(age.getText()));
+            admin.setAddress(address.getText());
+            admin.setPassword(password.getText());
+            admin.setGender(gender.getValue());
+            adminList.add(admin);
+            adminList.getLast().displayUserInfo();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginAsAdmin.fxml"));
             root = fxmlLoader.load();
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -273,8 +272,8 @@ public class CustomerSignUpController implements Initializable {
             stage.show();
         }
     }
-    public void switchSceneToCustomerLoginOrSignUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerLoginOrSignUp.fxml"));
+    public void switchSceneToadminLoginOrSignUp(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminLoginOrSignUp.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);

@@ -17,7 +17,7 @@ import java.util.Scanner;
  */
 public class Admin extends User implements saveAndLoad, checkNumberValid {
    public static List<Restaurant>restaurants;
-   static List<Admin> adminList=new ArrayList<>();
+   public static List<Admin> adminList=new ArrayList<>();
 
 
    static public void instance(){

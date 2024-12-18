@@ -34,8 +34,8 @@ public class CustomerLoginController {
         String email= Email.getText();
         String password= Password.getText();
         for (int i = 0; i < userList.size(); i++) {
-            if (email.equalsIgnoreCase(userList.get(i).email)) {
-                if (password.equals(userList.get(i).password)) {
+            if (email.equalsIgnoreCase(userList.get(i).getEmail())) {
+                if (password.equals(userList.get(i).getPassword())) {
                     label.setText("Login successful, nigga");
                     label.setTextFill(Color.GREEN);
                 } else if (i == userList.size() - 1) {

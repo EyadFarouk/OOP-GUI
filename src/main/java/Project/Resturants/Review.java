@@ -68,7 +68,7 @@ public class Review {
         System.out.println("If you have any note please enter : ");
         note=scanner.nextLine();
         number_of_reviewsDS++;
-        nameOfDelivery=deliveryStaff.Fname;
+        nameOfDelivery=deliveryStaff.getFname();
         this.scoreRating = Rating;
         deliveryStaff.setRating((deliveryStaff.getRating()*(number_of_reviewsDS-1)+Rating) / number_of_reviewsDS);
     }
