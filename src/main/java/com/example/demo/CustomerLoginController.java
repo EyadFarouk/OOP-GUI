@@ -30,7 +30,7 @@ public class CustomerLoginController {
     private Label label;
 
     @FXML
-    protected void checkIfValid(ActionEvent event) {
+    protected void checkIfValid() {
         String email= Email.getText();
         String password= Password.getText();
         for (int i = 0; i < userList.size(); i++) {
