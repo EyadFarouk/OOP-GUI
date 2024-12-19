@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SceneChanger">
+   <children>
+      <ImageView fitHeight="650.0" fitWidth="650.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imgs/pay.jpg" />
+         </image>
+      </ImageView>
+      <Button layoutX="185.0" layoutY="160.0" mnemonicParsing="false" text="pay with card">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Button layoutX="425.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchTocash" text="pay with cash">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+      <Label alignment="CENTER" ellipsisString="" layoutX="117.0" layoutY="26.0" prefHeight="118.0" prefWidth="470.0" text="please choose your paying method " textOverrun="CLIP">
+         <font>
+            <Font name="HP Simplified" size="30.0" />
+         </font>
+         <textFill>
+            <LinearGradient endX="1.0" endY="1.0">
+               <stops>
+                  <Stop>
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+                  <Stop offset="1.0">
+                     <color>
+                        <Color />
+                     </color>
+                  </Stop>
+               </stops>
+            </LinearGradient>
+         </textFill>
+      </Label>
+      <Button layoutX="317.0" layoutY="230.0" mnemonicParsing="false" text="go back">
+         <font>
+            <Font size="15.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
