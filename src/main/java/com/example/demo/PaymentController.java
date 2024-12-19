@@ -17,7 +17,7 @@ import java.io.IOException;
 
 public class PaymentController {
     @FXML
-    private Button Cash;
+    private Button cash;
     @FXML
     private Button card;
     @FXML
@@ -57,7 +57,7 @@ public class PaymentController {
             Cvv = cvv.getText();
             ExpDate = expirationDate.getText();
 
-            if (CardNum != null && CardNum.length() >= 12 && CardNum.length() <= 16 && CardNum.matches("[0-9]+")) {
+            if (CardNum.length() >= 12 && CardNum.length() <= 16 && CardNum.matches("[0-9]+")) {
                 cardcheck.setText("Valid card number");
                 cardcheck.setTextFill(Color.GREEN);
             } else {
@@ -65,7 +65,7 @@ public class PaymentController {
                 cardcheck.setTextFill(Color.RED);
             }
 
-            if (Cvv != null && Cvv.length() >= 3 && Cvv.length() <= 4 && Cvv.matches("[0-9]+")) {
+            if (Cvv.length() >= 3 && Cvv.length() <= 4 && Cvv.matches("[0-9]+")) {
                 cvvcheck.setText("Valid CVV");
                 cvvcheck.setTextFill(Color.GREEN);
             } else {
@@ -73,7 +73,7 @@ public class PaymentController {
                 cvvcheck.setTextFill(Color.RED);
             }
 
-            if (ExpDate != null && ExpDate.length() == 5 && ExpDate.matches("(0[1-9]|1[0-2])/\\d{2}")) {
+            if (ExpDate.length() == 5 && ExpDate.matches("(0[1-9]|1[0-2])/\\d{2}")) {
                 expcheck.setText("Valid expiration date");
                 expcheck.setTextFill(Color.GREEN);
             } else {
@@ -88,9 +88,18 @@ public class PaymentController {
 
     public void switchTopayment(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paymentcon.fxml"));
-        Object root = fxmlLoader.load();
+        Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene((Parent) root);
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void cardpaymentdone(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("carddone.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

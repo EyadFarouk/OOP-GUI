@@ -112,12 +112,5 @@ public class SceneChanger {
         stage.setScene(scene);
         stage.show();
     }
-    public void cardpaymentdone(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("carddone.fxml"));
-        root = fxmlLoader.load();
-        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+
 }
