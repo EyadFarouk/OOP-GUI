@@ -21,18 +21,18 @@ public class Order {
     private  static List<Dish> foodItems=new ArrayList<>();
     private double totalPrice;
     private String orderLocation;
-    private String orderState; // state of the order (Pending, Completed, Canceled)
-
+    // state of the order (Pending, Completed, Canceled)
+    private OrderState orderState;
     /**
      * this is the constructor and it takes two parameters
      * @param orderLocation the location the order is headed to
      * @param orderState the current state of the order
      */
-    public Order(String orderLocation, String orderState) {
+    public Order(String orderLocation, OrderState orderState) {
         this.orderId = generateRandomOrderId();
         this.orderDate = new Date();
         //foodItems = new ArrayList<>();
-       // this.totalPrice = 0.0;
+        // this.totalPrice = 0.0;
         this.orderLocation = orderLocation;
         this.orderState = orderState;
     }
@@ -66,7 +66,7 @@ public class Order {
     /**
      * this method uses the addFoodItem method to create new orders
      */
-        public void makeOrder(){
+    public void makeOrder(){
         if (foodItems.isEmpty()){
             System.out.println("you should choose food first");
             return;
@@ -75,7 +75,7 @@ public class Order {
         Restaurant restaurant=new Restaurant();
         restaurant.displayMenu(foodItems);
         Card card=new Card();
-       // card.SelectCard();
+        card.SelectCard();
     }
 
     /* === Getters === */
@@ -104,7 +104,7 @@ public class Order {
      * gets the order state
      * @return returns order state
      */
-    public String getOrderState() { return orderState; }
+    public OrderState getOrderState() { return orderState; }
 
     /* === Setters ===*/
 
@@ -112,7 +112,7 @@ public class Order {
      * sets the order state
      * @param orderState takes the current state of the order
      */
-    public void setOrderState(String orderState) { this.orderState = orderState; }
+    public void setOrderState(OrderState orderState) { this.orderState = orderState; }
 
     // override the toString() method
     @Override
@@ -135,12 +135,12 @@ public class Order {
         try {
             BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter("Data/orders.txt"));
             for (Order order:orders){
-                if (order.orderState.equals("delivered")){
+                if (order.orderState==OrderState.Delivered){
                     continue;
                 }
                 bufferedWriter.write(order.orderId+'\n');
                 bufferedWriter.write(order.orderLocation+'\n');
-                bufferedWriter.write(order.orderState+'\n');
+                bufferedWriter.write(String.valueOf(order.orderState)+'\n');
                 bufferedWriter.write(String.valueOf(order.totalPrice)+'\n');
             }
             bufferedWriter.close();
@@ -160,7 +160,7 @@ public class Order {
                 line= bufferedReader.readLine();
                 order.orderLocation=line;
                 line=bufferedReader.readLine();
-                order.orderState=line;
+                order.orderState= OrderState.valueOf(line);
                 line=bufferedReader.readLine();
                 order.totalPrice=Double.valueOf(line);
                 orders.add(order);

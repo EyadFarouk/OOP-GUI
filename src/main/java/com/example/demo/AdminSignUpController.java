@@ -48,9 +48,6 @@ public class AdminSignUpController implements Initializable {
     private TextField address;
 
     @FXML
-    private TextField deliveryAddress;
-
-    @FXML
     private PasswordField password;
 
     @FXML
@@ -243,14 +240,28 @@ public class AdminSignUpController implements Initializable {
             }
         }
     }
+    private boolean checkEmailUnique(){
+        boolean exists=false;
+        for (Admin admin : adminList) {
+            if (email.getText().equals(admin.getEmail())) {
+                return false;
+            }
+        }
+        return true;
+    }
 
     public void validateInputAndSignUp(ActionEvent event) throws IOException {
+        if(!checkEmailUnique()){
+            Email_label.setTextFill(Color.RED);
+            Email_label.setText("The email should be unique");
+            Email_label.setFont(Font.font("System",FontWeight.BOLD,20));
+            return;
+        }
         if(Email_label.getTextFill()==Color.GREEN
                 ||Password_label.getTextFill()==Color.GREEN
                 ||Fname_label.getTextFill()==Color.GREEN
                 ||Lname_label.getTextFill()==Color.GREEN
                 ||Age_label.getTextFill()==Color.GREEN
-                ||!(deliveryAddress.getText().isEmpty())
                 ||!(address.getText().isEmpty())
                 ||Phone_label.getTextFill()==Color.GREEN){
             Admin admin = new Admin();

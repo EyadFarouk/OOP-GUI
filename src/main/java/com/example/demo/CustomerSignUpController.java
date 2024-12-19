@@ -20,6 +20,7 @@ import javafx.scene.control.TextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 
 import static Project.Person.Customer.userList;
 
@@ -244,7 +245,23 @@ public class CustomerSignUpController implements Initializable {
         }
     }
 
+    private boolean checkEmailUnique(){
+        boolean exists=false;
+        for (Customer customer : userList) {
+            if (email.getText().equals(customer.getEmail())) {
+                return false;
+            }
+        }
+            return true;
+    }
+
     public void validateInputAndSignUp(ActionEvent event) throws IOException {
+        if(!checkEmailUnique()){
+            Email_label.setTextFill(Color.RED);
+            Email_label.setText("The email should be unique");
+            Email_label.setFont(Font.font("System",FontWeight.BOLD,20));
+            return;
+        }
         if(Email_label.getTextFill()==Color.GREEN
                 ||Password_label.getTextFill()==Color.GREEN
                 ||Fname_label.getTextFill()==Color.GREEN

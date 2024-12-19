@@ -1,13 +1,18 @@
 package Project.Resturants;
 
 
+import Project.Interfaces.Checker;
+
+import java.awt.*;
 import java.io.*;
+import java.net.URI;
+import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 /**
  * this class is to make every thing about restaurant and menu
  * */
-public class Restaurant extends Menu implements Comparable<Restaurant> {
+public class Restaurant extends Menu implements Comparable<Restaurant>, Checker {
 
     public String name;
 
@@ -15,8 +20,10 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
     public String contactInformation;
 
     public double rating;
+
+    public String uri;
     /**
-     * this method has @param listof Dish to print at
+     * this method has @param menu to print at
      * */
     public void displayMenu(List<Dish>menu){
         for (int i=0;i< menu.size();i++){
@@ -29,7 +36,7 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         }
     }
     /**
-     * this method has @param listof restaurant to print it without menu
+     * this method has @param restaurants to print it without menu
      * */
     public void displayRestaurant(List<Restaurant>restaurants){
         int i=1;
@@ -43,7 +50,7 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         }
     }
     /**
-     * this method has @param listof restaurant to print it with menu
+     * this method has @param restaurants to print it with menu
      * */
     public void displayRestaurantWithMenu(List<Restaurant>restaurants){
         int j=1;
@@ -68,19 +75,19 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         }
     }
     /**
-     * this method has @param listof restaurant and @param int to get restaurant in list
+     * this method has @param restaurants and @param i to get restaurant in list
      * */
     public Restaurant getRestaurant(int i,List<Restaurant>restaurants){
         return restaurants.get(i-1);
     }
     /**
-     * this method has @param listof Dish and @param int to get dish from list
+     * this method has @param menu and @param i to get dish from list
      * */
     public Dish getDish(int i,List<Dish>menu){
         return menu.get(i-1);
     }
     /**
-     * this method has @param listof Dish and @param String to get dish with her name
+     * this method has @param menu  and @param name to get dish with her name
      * */
     public Dish searchAboutDishWithName(String name,List<Dish>menu){
         for (Dish dish : menu) {
@@ -94,7 +101,7 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
 
     }
     /**
-     * this method has @param listof Dish and @param String to get dish with her description
+     * this method has @param menu and @param description to get dish with her description
      * */
     public Dish searchAboutDishWithDescription(String description,List<Dish>menu){
         for (Dish dish : menu) {
@@ -108,7 +115,7 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         return null;
     }
     /**
-     * this method @param listof Dish and @param String to get dish with type
+     * this method @param menu and @param categories to get dish with type
      * */
     public Dish searchAboutDishWithCategories(String categories,List<Dish>menu){
         for (Dish dish : menu) {
@@ -120,6 +127,14 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         }
         System.out.println("dish is not available");
         return null;
+    }
+    /**
+     * this method to get actual location of restaurant on Google map
+     * */
+    public void getLocation() throws URISyntaxException, IOException {
+        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
+            Desktop.getDesktop().browse(new URI(uri));
+        }
     }
     /**
      * this method to sort object with the rating
@@ -134,18 +149,18 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         return 0;
     }
     /**
-     * this method has @param listof restaurant to save data in file
+     * this method has @param restaurantList to save data in file
      * */
     public void saveData(List<Restaurant> restaurantList) {
         try {
             BufferedWriter fileWriter=new BufferedWriter(new FileWriter("Data/restaurant.txt"));
-               for (Restaurant restaurant :restaurantList) {
-                   fileWriter.write(restaurant.name+'\n'+restaurant.address+'\n'+restaurant.contactInformation+'\n'+restaurant.rating+'\n');
-                   for ( int i=0;i<restaurant.menu.size();i++){
-                       fileWriter.write(restaurant.menu.get(i).name+'\n'+restaurant.menu.get(i).description+'\n'+restaurant.menu.get(i).price+'\n'+restaurant.menu.get(i).categories+'\n'+restaurant.menu.get(i).rating+'\n');
-                   }
-                   fileWriter.write('\n');
-               }
+            for (Restaurant restaurant :restaurantList) {
+                fileWriter.write(restaurant.name+'\n'+restaurant.address+'\n'+restaurant.contactInformation+'\n'+restaurant.rating+'\n'+restaurant.uri +'\n');
+                for ( int i=0;i<restaurant.menu.size();i++){
+                    fileWriter.write(restaurant.menu.get(i).name+'\n'+restaurant.menu.get(i).description+'\n'+restaurant.menu.get(i).price+'\n'+restaurant.menu.get(i).categories+'\n'+restaurant.menu.get(i).rating+'\n');
+                }
+                fileWriter.write('\n');
+            }
 
             fileWriter.close();
         }
@@ -174,9 +189,11 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
                 restaurant.contactInformation=line;
                 line=reader.readLine();
                 restaurant.rating=Double.parseDouble(line);
+                line=reader.readLine();
+                restaurant.uri =line;
                 List<Dish>menu=new ArrayList<>();
                 while (!(line =reader.readLine()).isEmpty()){
-                 //   System.out.println(j);
+                    //   System.out.println(j);
                     dish.name=line;
                     line=reader.readLine();
                     dish.description=line;
@@ -206,3 +223,4 @@ public class Restaurant extends Menu implements Comparable<Restaurant> {
         return this.name + '\n' + this.address + '\n' + this.contactInformation + '\n' + this.rating + '\n' + this.menu +"\n\n";
     }
 }
+

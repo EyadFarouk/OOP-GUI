@@ -16,11 +16,11 @@ import java.util.Scanner;
  * Admin class and the methods for the admin
  */
 public class Admin extends User implements saveAndLoad, checkNumberValid {
-   public static List<Restaurant>restaurants;
-   public static List<Admin> adminList=new ArrayList<>();
+    public static List<Restaurant>restaurants;
+    public static List<Admin> adminList=new ArrayList<>();
 
 
-   static public void instance(){
+    static public void instance(){
         Admin Eyad=new Admin();
         Eyad.email="AEyad";
         Eyad.password="AEyad";
@@ -38,32 +38,32 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
             adminList.add(admin);
             admin.displayUserInfo();
         }
-   }
+    }
 
     public  Restaurant getRestaurant(String name){
-      try {
-          for (Restaurant restaurant:restaurants){
-              if (name.equals(restaurant.name)){
-                  return restaurant;
-              }
-          }
-      }catch (Exception e){
-          System.out.println("Restaurant not found");
-      }
-       return null;
+        try {
+            for (Restaurant restaurant:restaurants){
+                if (name.equals(restaurant.name)){
+                    return restaurant;
+                }
+            }
+        }catch (Exception e){
+            System.out.println("Restaurant not found");
+        }
+        return null;
     }
     public  int getMenu(String name,Restaurant restaurant){
-       int i;
-     try {
-         for (i=0;i<restaurant.menu.size();i++){
-             if(name.equals(restaurant.menu.get(i).name)){
-                 return i;
-             }
-         }
-     }catch (Exception e){
-         System.out.println("Dish not found");
-     }
-       return 10000;
+        int i;
+        try {
+            for (i=0;i<restaurant.menu.size();i++){
+                if(name.equals(restaurant.menu.get(i).name)){
+                    return i;
+                }
+            }
+        }catch (Exception e){
+            System.out.println("Dish not found");
+        }
+        return 10000;
     }
     public  void addRestaurant(){
         Restaurant restaurant=new Restaurant();
@@ -76,6 +76,8 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
         restaurant.contactInformation=scanner.nextLine();
         System.out.println("Please enter rating of restaurant : ");
         restaurant.rating=checkNumber(0.0,5.0,"Please enter a valid rating: ");
+        System.out.println("Please enter url of location of restaurant : ");
+        restaurant.uri =scanner.nextLine();
         System.out.println("Please enter number of item in menu : ");
         int x=checkNumber(0,100,"Please enter a valid number of item: ");
         Dish dish=new Dish();
@@ -88,16 +90,16 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
 
     }
     public  void deleteRestaurant(){
-       Scanner scanner=new Scanner(System.in);
-       String name;
-       System.out.println("Please enter name of restaurant : ");
-       name=scanner.nextLine();
-       restaurants.remove(getRestaurant(name));
+        Scanner scanner=new Scanner(System.in);
+        String name;
+        System.out.println("Please enter name of restaurant : ");
+        name=scanner.nextLine();
+        restaurants.remove(getRestaurant(name));
 
     }
     public  void addMenu( ){
-       String name;
-       Scanner scanner=new Scanner(System.in);
+        String name;
+        Scanner scanner=new Scanner(System.in);
         System.out.println("Please enter name of restaurant : ");
         name=scanner.nextLine();
         System.out.println("Please enter number of item in menu : ");
@@ -125,7 +127,7 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
     }
 
     public  void deleteMenu(){
-       Scanner scanner=new Scanner(System.in);
+        Scanner scanner=new Scanner(System.in);
         String name;
         System.out.println("Please enter name of restaurant : ");
         name=scanner.nextLine();
@@ -195,25 +197,25 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
     @Override
     public Admin login() {
         System.out.println("Welcome in Log in page");
-       do {
-           Scanner scanner = new Scanner(System.in);
-           System.out.print("Please enter your email : ");
-           this.email = scanner.nextLine();
-           System.out.print("Please enter your password : ");
-           this.password = scanner.nextLine();
-           for (int i = 0; i < adminList.size(); i++) {
-               if (this.email.equalsIgnoreCase(adminList.get(i).email)) {
-                   if (this.password.equals(adminList.get(i).password)) {
-                       System.out.println("log in success");
-                       return adminList.get(i);
-                   } else if (i == adminList.size() - 1) {
-                       System.out.println("The email or password is not correct. Try again");
-                   }
-               } else if (i == adminList.size() - 1) {
-                   System.out.println("The email could not be found. Try again");
-               }
-           }
-       }while (true);
+        do {
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Please enter your email : ");
+            this.email = scanner.nextLine();
+            System.out.print("Please enter your password : ");
+            this.password = scanner.nextLine();
+            for (int i = 0; i < adminList.size(); i++) {
+                if (this.email.equalsIgnoreCase(adminList.get(i).email)) {
+                    if (this.password.equals(adminList.get(i).password)) {
+                        System.out.println("log in success");
+                        return adminList.get(i);
+                    } else if (i == adminList.size() - 1) {
+                        System.out.println("The email or password is not correct. Try again");
+                    }
+                } else if (i == adminList.size() - 1) {
+                    System.out.println("The email could not be found. Try again");
+                }
+            }
+        }while (true);
     }
 
     /**

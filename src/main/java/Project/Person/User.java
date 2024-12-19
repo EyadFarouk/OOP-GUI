@@ -226,4 +226,12 @@ abstract public class User implements checkNumberValid {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public String getFname() {
+        return Fname;
+    }
+
+    public String getLname() {
+        return Lname;
+    }
 }
