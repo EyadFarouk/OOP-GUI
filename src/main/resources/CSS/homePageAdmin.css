@@ -1,0 +1,15 @@
+#body {
+    -fx-background-image: url("../imgs/food_img.jpg");
+    -fx-background-size: cover;
+}
+
+.cont {
+    -fx-background-color: #333;
+-fx-alignment: center; /* Center the content of the GridPane */
+    -fx-hgap: 10; /* Horizontal gap between buttons */
+    -fx-vgap: 10; /* Vertical gap between buttons */
+    -fx-padding: 12;
+}
+.btn {
+    -fx-width: 100;
+}
