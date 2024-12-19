@@ -45,8 +45,7 @@ public class CustomerLoginController implements Initializable {
                     label.setText("Login successful, nigga");
                     label.setTextFill(Color.GREEN);
                     customer = userList.get(i);
-                    UserInfo.Fname= customer.getFname();
-                    UserInfo.Lname= customer.getLname();
+                    UserInfo.customer = customer;
                     switchSceneToInterface(event);
                 } else if (i == userList.size() - 1) {
                     label.setText("The email or password is incorrect");
