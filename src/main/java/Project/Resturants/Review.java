@@ -41,12 +41,8 @@ public class Review {
      */
     public void setReviewForRestaurant(double Rating) {
         number_of_reviewsR++;
-        Scanner scanner=new Scanner(System.in);
-        System.out.println("If you have any note please enter : ");
-        note=scanner.nextLine();
         this.scoreRating = Rating;
-
-        restaurant.rating = (restaurant.rating*(number_of_reviewsR-1)+Rating) / number_of_reviewsR;
+        restaurant.rating = Math.round((restaurant.rating*(number_of_reviewsR-1)+Rating) / number_of_reviewsR*100.0)/100.0;
     }
 
     /**

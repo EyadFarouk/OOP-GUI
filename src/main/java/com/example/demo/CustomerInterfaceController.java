@@ -1,30 +1,30 @@
 package com.example.demo;
 
-import Project.Person.Customer;
 import Project.Resturants.Restaurant;
+import Project.Resturants.Review;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
-import java.net.URL;
 import java.util.List;
-import java.util.ResourceBundle;
 
-public class CustomerInterfaceController implements Initializable {
+public class CustomerInterfaceController{
     private Scene scene;
     private Stage stage;
     private Parent root;
 
     List<Restaurant> restaurants;
+    List<Review>reviewsRestaurant;
 
     int number=0;
 
@@ -43,6 +43,15 @@ public class CustomerInterfaceController implements Initializable {
     @FXML
     private Label Contact;
 
+    @FXML
+    private TextField Reviewer;
+
+    @FXML
+    private Rectangle ReviewRectangle;
+
+    @FXML
+    private Button ReviewButton;
+
     public void switchToLogin(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerLoginOrSignUp.fxml"));
         root = fxmlLoader.load();
@@ -52,19 +61,36 @@ public class CustomerInterfaceController implements Initializable {
         stage.show();
     }
 
-    /**
-     * @param url
-     * @param resourceBundle
-     */
-    @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
-        CustomerName.setText(UserInfo.customer.getFname()+" "+UserInfo.customer.getLname());
+    public void switchToCustomerChoseRestaurant(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerChoseRestaurant.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void initialize() {
+        CustomerName.setText(Info.customer.getFname()+" "+ Info.customer.getLname());
         Restaurant restaurant = new Restaurant();
         restaurants=restaurant.loadData();
+        Review rev=new Review();
+        reviewsRestaurant=rev.loadDataReviewRestaurant();
         Name.setText("Restaurant name: "+restaurants.getFirst().name);
         Address.setText("Address: "+restaurants.getFirst().address);
         Rating.setText("Rating of the restaurant: "+restaurants.getFirst().rating);
         Contact.setText("Contact information: "+restaurants.getFirst().contactInformation);
+        ReviewButton.setDisable(true);
+        ReviewRectangle.setDisable(true);
+        Reviewer.setDisable(true);
+        ReviewButton.setOpacity(0.0);
+        ReviewRectangle.setOpacity(0.0);
+        Reviewer.setOpacity(0.0);
+    }
+
+    public void chooseRestaurant(ActionEvent event) throws IOException {
+        Info.restaurant=restaurants.get(number);
+        switchToCustomerChoseRestaurant(event);
     }
 
     public void Previous(){
@@ -90,6 +116,44 @@ public class CustomerInterfaceController implements Initializable {
     }
 
     public void getLocation() throws URISyntaxException, IOException {
+        System.out.println(restaurants.get(number).name);
         restaurants.get(number).getLocation();
+    }
+
+    public void review(){
+        if(ReviewRectangle.getOpacity()==0.0) {
+            ReviewButton.setDisable(false);
+            ReviewRectangle.setDisable(false);
+            Reviewer.setDisable(false);
+            ReviewButton.setOpacity(1.0);
+            ReviewRectangle.setOpacity(1.0);
+            Reviewer.setOpacity(1.0);
+            Reviewer.setText("");
+        }else{
+            ReviewButton.setDisable(true);
+            ReviewRectangle.setDisable(true);
+            Reviewer.setDisable(true);
+            ReviewButton.setOpacity(0.0);
+            ReviewRectangle.setOpacity(0.0);
+            Reviewer.setOpacity(0.0);
+        }
+    }
+
+    public void setReview(){
+        Review review=new Review(restaurants.get(number));
+        for (Review value : reviewsRestaurant) {
+            if (value.restaurant.name.equals(restaurants.get(number).name)) {
+                review.number_of_reviewsR++;
+            }
+        }
+        review.setReviewForRestaurant(Double.parseDouble(Reviewer.getText()));
+        reviewsRestaurant.add(review);
+        Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
+        ReviewButton.setDisable(true);
+        ReviewRectangle.setDisable(true);
+        Reviewer.setDisable(true);
+        ReviewButton.setOpacity(0.0);
+        ReviewRectangle.setOpacity(0.0);
+        Reviewer.setOpacity(0.0);
     }
 }
