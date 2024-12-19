@@ -1,6 +1,7 @@
 package com.example.demo;
 
+import Project.Person.Customer;
+
 class UserInfo {
-    static String Fname;
-    static String Lname;
+    static Customer customer;
 }

@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CustomerInterfaceController">
+   <children>
+      <ImageView fitHeight="584.0" fitWidth="907.0" layoutX="-54.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imgs/Kitchen.png" />
+         </image>
+      </ImageView>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#58626b" height="620.0" layoutX="307.0" layoutY="-6.0" stroke="BLACK" strokeType="INSIDE" width="543.0" />
+      <Label alignment="CENTER" layoutX="478.0" layoutY="12.0" prefHeight="49.0" prefWidth="202.0" text="Resturants" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="525.0" layoutY="549.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="33.0" prefWidth="112.0" text="Logout">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Button>
+      <Label fx:id="Contact" alignment="TOP_CENTER" layoutX="309.0" layoutY="304.0" prefHeight="117.0" prefWidth="543.0" text="Contact information:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="Address" alignment="CENTER" layoutX="312.0" layoutY="161.0" prefHeight="49.0" prefWidth="543.0" text="Address: " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="Rating" alignment="CENTER" layoutX="309.0" layoutY="228.0" prefHeight="49.0" prefWidth="543.0" text="Rating of the Restaurant:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Label fx:id="Name" alignment="CENTER" layoutX="309.0" layoutY="94.0" prefHeight="49.0" prefWidth="543.0" text="Restaurant name: " textAlignment="CENTER" textFill="WHITE" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <ImageView fitHeight="215.0" fitWidth="210.0" layoutX="45.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imgs/unknown.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="CustomerName" alignment="CENTER" layoutX="54.0" layoutY="199.0" prefHeight="49.0" prefWidth="193.0" text="Name" textAlignment="CENTER" wrapText="true">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
+      <Button alignment="CENTER" layoutX="357.0" layoutY="430.0" mnemonicParsing="false" onAction="#Previous" prefHeight="49.0" prefWidth="112.0" text="&lt;" textFill="RED">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="680.0" layoutY="430.0" mnemonicParsing="false" onAction="#Next" prefHeight="49.0" prefWidth="112.0" text="&gt;" textFill="RED">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="507.0" layoutY="430.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="49.0" prefWidth="148.0" text="Select">
+         <font>
+            <Font name="System Bold" size="26.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="312.0" layoutY="500.0" mnemonicParsing="false" onAction="#getLocation" prefHeight="49.0" prefWidth="202.0" text="Location in maps">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button alignment="CENTER" layoutX="662.0" layoutY="499.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="49.0" prefWidth="148.0" text="Review">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Button>
+   </children>
+</AnchorPane>
