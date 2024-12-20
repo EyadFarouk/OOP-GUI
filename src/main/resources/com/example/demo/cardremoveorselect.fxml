@@ -16,12 +16,12 @@
             <Image url="@../../../imgs/deliv.jpeg" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" layoutX="22.0" layoutY="14.0" prefHeight="42.0" prefWidth="554.0" text="please enter the number of saved card and select what you wish to do">
+      <Label alignment="CENTER" layoutX="21.0" layoutY="4.0" prefHeight="42.0" prefWidth="554.0" text="please enter the number of saved card and select what you wish to do">
          <font>
             <Font name="HP Simplified Hans Regular" size="18.0" />
          </font>
       </Label>
-      <Label layoutX="113.0" layoutY="78.0" prefHeight="18.0" prefWidth="102.0" text="cardchecker" />
+      <Label fx:id="cardvalid" alignment="CENTER" layoutX="7.0" layoutY="37.0" prefHeight="18.0" prefWidth="583.0" text="cardchecker" />
       <Button fx:id="select" layoutX="468.0" layoutY="172.0" mnemonicParsing="false" onAction="#selectCard" text="select" />
       <Button fx:id="Remove" layoutX="464.0" layoutY="228.0" mnemonicParsing="false" onAction="#removeCard" text="remove" />
       <CheckBox fx:id="sure" layoutX="395.0" layoutY="210.0" mnemonicParsing="false" text="im sure i want to delete the card" />

@@ -9,6 +9,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
@@ -20,6 +21,8 @@ public class SelectAndRemoveCard {
 
     @FXML
     private TextField cardNumber;
+    @FXML
+    private Label cardvalid;
     @FXML
     private CheckBox sure;
     private Stage stage;
@@ -35,13 +38,13 @@ public class SelectAndRemoveCard {
         for (int i = 0; i < cardList.size(); i++) {
             if (cardList.get(i).getCardNum().equals(inputCardNum)) {
                 cardList.remove(i);
-                cardNumber.setText("Card removed successfully.");
+                cardvalid.setText("Card removed successfully.");
                 return;
             }
             }
         }
 
-        cardNumber.setText("Card not found. Please check the card number and try again.");
+        cardvalid.setText("Card not found. Please check the card number and try again.");
     }
 
     public void selectCard(ActionEvent event) throws IOException {
@@ -58,7 +61,7 @@ public class SelectAndRemoveCard {
         if (cardFound) {
             switchScene(event, "carddone.fxml");
         } else {
-            cardNumber.setText("Card not found or incorrect number entered.");
+            cardvalid.setText("Card not found or incorrect number entered.");
         }
     }
 
