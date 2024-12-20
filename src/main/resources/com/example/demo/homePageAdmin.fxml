@@ -6,8 +6,7 @@
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
 
-
-<AnchorPane id="body" prefHeight="400.0" prefWidth="587.0" stylesheets="@../../../CSS/homePageAdmin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.HomePageAdmin">
+<AnchorPane id="body" prefHeight="400.0" prefWidth="587.0" stylesheets="@../../../CSS/homePageAdmin.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SceneChanger">
    <children>
       <GridPane layoutY="114.0" minWidth="-Infinity" prefWidth="0.0" styleClass="cont" stylesheets="@../../../CSS/homePageAdmin.css" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <columnConstraints>
@@ -24,7 +23,7 @@
             <Button fx:id="delMenu" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Menu" GridPane.halignment="RIGHT" GridPane.rowIndex="3" />
             <Button fx:id="addDeliveryStaff" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Delivery Staff" GridPane.columnIndex="1" GridPane.rowIndex="1" />
             <Button fx:id="displayRestaurant" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Display Restaurant with Menu" GridPane.columnIndex="1" />
-            <Button fx:id="addRestaurant" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Restaurant" GridPane.halignment="RIGHT" />
+            <Button fx:id="addRestaurant" mnemonicParsing="false" onAction="#addRestaurantScene" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Restaurant" GridPane.halignment="RIGHT" />
             <Button fx:id="setReport" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Set Report About Restaurant" GridPane.columnIndex="1" GridPane.rowIndex="2" />
             <Button fx:id="delRestaurant" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Restaurant" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
             <Button fx:id="logout" mnemonicParsing="false" prefWidth="185.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Log Out" GridPane.columnIndex="1" GridPane.rowIndex="3" />

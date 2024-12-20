@@ -8,8 +8,42 @@
 -fx-alignment: center; /* Center the content of the GridPane */
     -fx-hgap: 10; /* Horizontal gap between buttons */
     -fx-vgap: 10; /* Vertical gap between buttons */
-    -fx-padding: 12;
 }
 .btn {
     -fx-width: 100;
+}
+
+.gridPaneInputs {
+    -fx-padding: 0 20 0 20; /* Padding around the GridPane */
+    -fx-hgap: 10; /* Horizontal gap between cells */
+    -fx-vgap: 10; /* Vertical gap between cells */
+}
+.textField {
+    -fx-background-color: white; /* White background */
+    -fx-border-color: #dcdcdc; /* Light gray border */
+    -fx-border-radius: 5; /* Rounded corners */
+    -fx-font-size: 14px; /* Font size */
+    -fx-text-fill: black; /* Text color */
+}
+.textField:focused {
+    -fx-border-color: #007bff; /* Blue border when focused */
+    -fx-background-color: #f0f8ff; /* Light blue background when focused */
+}
+.textField:hover {
+    -fx-border-color: #a9a9a9; /* Darker gray border on hover */
+}
+
+
+.submitButton {
+    -fx-background-color: #007bff; /* Blue background */
+    -fx-text-fill: white; /* White text color */
+    -fx-font-size: 14px; /* Font size */
+    -fx-border-radius: 5; /* Rounded corners */
+    -fx-margin: 20;
+}
+.submitButton:hover {
+    -fx-background-color: #0056b3; /* Darker blue on hover */
+}
+.submitButton:pressed {
+    -fx-background-color: #004085; /* Even darker blue when pressed */
 }
