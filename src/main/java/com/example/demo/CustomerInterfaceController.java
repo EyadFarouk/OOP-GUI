@@ -18,13 +18,13 @@ import java.io.IOException;
 import java.net.URISyntaxException;
 import java.util.List;
 
+import static com.example.demo.Info.restaurants;
+import static com.example.demo.Info.reviewsRestaurant;
+
 public class CustomerInterfaceController{
     private Scene scene;
     private Stage stage;
     private Parent root;
-
-    List<Restaurant> restaurants;
-    List<Review>reviewsRestaurant;
 
     int number=0;
 
@@ -72,10 +72,6 @@ public class CustomerInterfaceController{
 
     public void initialize() {
         CustomerName.setText(Info.customer.getFname()+" "+ Info.customer.getLname());
-        Restaurant restaurant = new Restaurant();
-        restaurants=restaurant.loadData();
-        Review rev=new Review();
-        reviewsRestaurant=rev.loadDataReviewRestaurant();
         Name.setText("Restaurant name: "+restaurants.getFirst().name);
         Address.setText("Address: "+restaurants.getFirst().address);
         Rating.setText("Rating of the restaurant: "+restaurants.getFirst().rating);

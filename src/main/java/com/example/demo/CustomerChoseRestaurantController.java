@@ -31,6 +31,7 @@ public class CustomerChoseRestaurantController {
     private List<Dish> foodItems=new ArrayList<>();
     private List<Integer>quantites=new ArrayList<>();
     private List<Dish> dishList;
+    public static double totalPrice;
 
     int number=0;
 
@@ -193,6 +194,19 @@ public class CustomerChoseRestaurantController {
             Order.setOpacity(0.0);
         }
         disappearAndEmpty();
+    }
+
+    public void makeOrder(ActionEvent event) throws IOException {
+        totalPrice=0;
+        for (int i = 0; i < foodItems.size(); i++) {
+            totalPrice = foodItems.get(i).price * quantites.get(i) + totalPrice;
+        }
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("payment.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
     }
 
     public void checkNumbers(){

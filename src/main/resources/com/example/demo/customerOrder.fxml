@@ -112,7 +112,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="Order" alignment="CENTER" layoutX="508.0" layoutY="465.0" mnemonicParsing="false" onAction="#makeOrder" prefHeight="49.0" prefWidth="148.0" text="Order">
+      <Button fx:id="Order" alignment="CENTER" layoutX="508.0" layoutY="465.0" mnemonicParsing="false" onAction="#Order" prefHeight="49.0" prefWidth="148.0" text="Order">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
