@@ -27,7 +27,7 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label alignment="CENTER" ellipsisString="" layoutX="117.0" layoutY="26.0" prefHeight="118.0" prefWidth="470.0" text="please choose your paying method " textOverrun="CLIP">
+      <Label fx:id="Price" alignment="CENTER" ellipsisString="" layoutX="117.0" layoutY="26.0" prefHeight="118.0" prefWidth="470.0" text="please choose your paying method " textOverrun="CLIP">
          <font>
             <Font name="HP Simplified" size="30.0" />
          </font>

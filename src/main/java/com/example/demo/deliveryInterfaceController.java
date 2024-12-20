@@ -102,16 +102,16 @@ public class deliveryInterfaceController {
         OrderPrice.setText("Order price: "+orders.getFirst().getOrderPrice());
     }
 
-//    public void Next(){
-//        if(number==restaurants.size()-1)
-//            number=0;
-//        else
-//            number++;
-//        Name.setText("Restaurant name: "+restaurants.get(number).name);
-//        Address.setText("Address: "+restaurants.get(number).address);
-//        Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
-//        Contact.setText("Contact information: "+restaurants.get(number).contactInformation);
-//    }
+    public void Next(){
+        if(number==restaurants.size()-1)
+            number=0;
+        else
+            number++;
+        OrderID.setText("Order ID: "+orders.getFirst().getOrderId());
+        OrderStatus.setText("Order status: "+orders.getFirst().getOrderState());
+        OrderLocation.setText("Order location: "+orders.getFirst().getOrderLocation());
+        OrderPrice.setText("Order price: "+orders.getFirst().getOrderPrice());
+    }
 
 //    public void setSearch(){
 //        Review review=new Review(restaurants.get(number));
