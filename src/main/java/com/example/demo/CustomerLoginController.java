@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import Project.Person.Customer;
+import Project.UI.Notification;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -15,9 +16,11 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Random;
 import java.util.ResourceBundle;
 
 import static Project.Person.Customer.userList;
+import static com.example.demo.Info.restaurants;
 
 public class CustomerLoginController implements Initializable {
     private Scene scene;
@@ -46,6 +49,10 @@ public class CustomerLoginController implements Initializable {
                     label.setTextFill(Color.GREEN);
                     customer = userList.get(i);
                     Info.customer = customer;
+                    Random random=new Random();
+                    int h=random.nextInt(restaurants.size());
+                    Notification notification=new Notification(customer.getFname(),restaurants.get(h).name);
+                    notification.start();
                     switchSceneToInterface(event);
                 } else if (i == userList.size() - 1) {
                     label.setText("The email or password is incorrect");
@@ -56,10 +63,6 @@ public class CustomerLoginController implements Initializable {
                 label.setTextFill(Color.RED);
             }
         }
-    }
-
-    public static Customer chosenAccount(){
-        return customer;
     }
 
     public void switchSceneToCustomerLoginOrSignUp(ActionEvent event) throws IOException {

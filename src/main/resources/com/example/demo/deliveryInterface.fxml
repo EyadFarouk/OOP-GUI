@@ -46,9 +46,9 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Label fx:id="OrderID" alignment="CENTER" layoutX="343.0" layoutY="97.0" prefHeight="49.0" prefWidth="543.0" text="Order ID:" textAlignment="CENTER" textFill="WHITE" wrapText="true">
+      <Label fx:id="OrderID" alignment="CENTER" layoutX="343.0" layoutY="97.0" prefHeight="49.0" prefWidth="543.0" text="Order ID:" textFill="WHITE" wrapText="true">
          <font>
-            <Font size="25.0" />
+            <Font size="15.0" />
          </font>
       </Label>
       <ImageView fitHeight="325.0" fitWidth="327.0" layoutX="57.0" layoutY="-33.0" pickOnBounds="true" preserveRatio="true">
@@ -56,7 +56,7 @@
             <Image url="@../../../imgs/pngegg.png" />
          </image>
       </ImageView>
-      <Label fx:id="DeliveryName" alignment="CENTER" layoutX="95.0" layoutY="204.0" prefHeight="49.0" prefWidth="193.0" text="Name" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="DeliveryName" alignment="CENTER" layoutX="-2.0" layoutY="204.0" prefHeight="49.0" prefWidth="385.0" text="Name" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="25.0" />
          </font>
@@ -77,7 +77,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="502.0" layoutY="433.0" mnemonicParsing="false" onAction="#chooseRestaurant" prefHeight="49.0" prefWidth="232.0" text="Change Status">
+      <Button alignment="CENTER" layoutX="502.0" layoutY="433.0" mnemonicParsing="false" onAction="#changeStatus" prefHeight="49.0" prefWidth="232.0" text="Change Status">
          <font>
             <Font name="System Bold" size="24.0" />
          </font>
@@ -85,7 +85,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="566.0" layoutY="516.0" mnemonicParsing="false" onAction="#getLocation" prefHeight="49.0" prefWidth="100.0" text="Search">
+      <Button alignment="CENTER" layoutX="566.0" layoutY="516.0" mnemonicParsing="false" onAction="#search" prefHeight="49.0" prefWidth="100.0" text="Search">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -99,9 +99,50 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="OrderButton" alignment="CENTER" layoutX="128.0" layoutY="382.0" mnemonicParsing="false" onAction="#setReview" prefHeight="40.0" prefWidth="126.0" text="Submit">
+      <Button fx:id="OrderButton" alignment="CENTER" layoutX="128.0" layoutY="382.0" mnemonicParsing="false" onAction="#setSearch" prefHeight="40.0" prefWidth="126.0" text="Submit">
          <font>
             <Font name="System Bold" size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle fx:id="State" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="345.0" layoutY="253.0" stroke="BLACK" strokeType="INSIDE" width="385.0" />
+      <Button fx:id="Preparing" alignment="CENTER" layoutX="77.0" layoutY="268.0" mnemonicParsing="false" onAction="#changePreparing" prefHeight="49.0" prefWidth="232.0" text="Preparing">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="Completed" alignment="CENTER" layoutX="77.0" layoutY="332.0" mnemonicParsing="false" onAction="#changeCompleted" prefHeight="49.0" prefWidth="232.0" text="Completed">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="InDelivery" alignment="CENTER" layoutX="77.0" layoutY="391.0" mnemonicParsing="false" onAction="#changeInDelivery" prefHeight="49.0" prefWidth="232.0" text="In Delivery">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="Delivered" alignment="CENTER" layoutX="77.0" layoutY="458.0" mnemonicParsing="false" onAction="#changeDelivered" prefHeight="49.0" prefWidth="232.0" text="Delivered">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button fx:id="Canceled" alignment="CENTER" layoutX="77.0" layoutY="516.0" mnemonicParsing="false" onAction="#changeCanceled" prefHeight="49.0" prefWidth="232.0" text="Canceled">
+         <font>
+            <Font name="System Bold" size="24.0" />
          </font>
          <cursor>
             <Cursor fx:constant="HAND" />

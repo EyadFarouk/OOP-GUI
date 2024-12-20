@@ -55,10 +55,6 @@ public class deliveryStaffLoginController {
         }
     }
 
-    public static Delivery_Staff chosenAccount(){
-        return deliveryStaff;
-    }
-
     public void switchSceneToWelcome(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("Welcome.fxml"));
         root = fxmlLoader.load();

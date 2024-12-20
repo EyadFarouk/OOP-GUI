@@ -40,6 +40,30 @@ class Info {
         deliveryStaff.loadData();
 
         Order order1=new Order();
-        List<Order>orders=order1.loadData();
+        orders=order1.loadData();
+    }
+
+    public static void saveData(){
+        Restaurant restaurant = new Restaurant();
+        restaurant.saveData(restaurants);
+
+        Review rev=new Review();
+        rev.saveData(reviewsRestaurant);
+
+        Customer customer = new Customer();
+        customer.saveData();
+
+        Admin admin = new Admin();
+        admin.saveData();
+
+
+        Card card = new Card();
+        card.saveData();
+
+        Delivery_Staff deliveryStaff=new Delivery_Staff("shubra");
+        deliveryStaff.saveData();
+
+        Order order1=new Order();
+        order1.saveData(orders);
     }
 }

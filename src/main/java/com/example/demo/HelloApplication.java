@@ -23,6 +23,7 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
         launch();
+        Info.saveData();
     }
     public void exit(Stage stage){
 
