@@ -37,6 +37,11 @@ public class AddRestaurant {
 
     @FXML
     private void handleSubmit() {
+        // Validate all input fields
+        if (!validateAllInputs()) {
+            return; // If any input is invalid, stop processing
+        }
+
         // Create a new Restaurant object
         Restaurant restaurant = new Restaurant();
 
@@ -44,13 +49,7 @@ public class AddRestaurant {
         restaurant.name = restaurantName.getText();
         restaurant.address = restaurantAddress.getText();
         restaurant.contactInformation = contactInfo.getText();
-
-        // Validate and set the rating
-        if (!validateInput(restaurantRating, 0.0, 5.0, "Rating must be between 0 and 5")) {
-            return;
-        }
         restaurant.rating = Double.parseDouble(restaurantRating.getText());
-
         restaurant.uri = URLLocation.getText();
 
         // Get menu items from the last input field
@@ -74,6 +73,47 @@ public class AddRestaurant {
 
         // Add the restaurant to the list
         restaurants.add(restaurant);
+    }
+
+    private boolean validateAllInputs() {
+        // Validate name
+        if (restaurantName.getText().trim().isEmpty()) {
+            showAlert("Input Error", "Restaurant name cannot be empty.");
+            return false;
+        }
+
+        // Validate address
+        if (restaurantAddress.getText().trim().isEmpty()) {
+            showAlert("Input Error", "Address cannot be empty.");
+            return false;
+        }
+
+        // Validate contact information
+        if (contactInfo.getText().trim().isEmpty()) {
+            showAlert("Input Error", "Contact information cannot be empty.");
+            return false;
+        }
+
+        // Validate rating
+        if (!validateInput(restaurantRating, 0.0, 5.0, "Rating must be between 0 and 5.")) {
+            return false;
+        }
+
+        // Validate URI
+        if (URLLocation.getText().trim().isEmpty()) {
+            showAlert("Input Error", "Location URL cannot be empty.");
+            return false;
+        }
+
+        // Validate menu items
+        String menuItemsText = menuItems.getText();
+        String[] menuItems = menuItemsText.split(",");
+        if (menuItems.length > 100) {
+            showAlert("Input Error", "The number of menu items must be less than 100.");
+            return false;
+        }
+
+        return true; // All inputs are valid
     }
 
     private boolean validateInput(TextField textField, double min, double max, String errorMessage) {
