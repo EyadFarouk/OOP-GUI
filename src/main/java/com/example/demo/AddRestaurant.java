@@ -10,7 +10,8 @@ import javafx.scene.control.Alert;
 import java.util.ArrayList;
 import java.util.List;
 
-import static Project.Person.Admin.restaurants;
+import static com.example.demo.Info.restaurants;
+
 
 public class AddRestaurant {
 
