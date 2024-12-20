@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import Project.Payment.Card;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -13,51 +14,53 @@ import javafx.scene.image.ImageView;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
+import java.time.YearMonth;
+import java.time.format.DateTimeFormatter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class PaymentController {
     @FXML
-    private Button cash;
+    private Button  submitButton;
     @FXML
-    private Button card;
+    private TextField cardnum, cvv, expirationDate, addMoneyField;
     @FXML
-    private ImageView pic;
-    @FXML
-    private TextField title;
-    @FXML
-    private Button goBack;
-    @FXML
-    private ImageView pic2;
-    @FXML
-    private Button goBack2;
-    @FXML
-    private Button goBack3;
-    @FXML
-    private ImageView pic3;
-    @FXML
-    private TextField cardnum;
-    @FXML
-    private TextField cvv;
-    @FXML
-    private TextField expirationDate;
-    @FXML
-    private Label cardcheck;
-    @FXML
-    private Label cvvcheck;
-    @FXML
-    private Label expcheck;
-    @FXML
-    private Button goback4;
+    private Label cardcheck, cvvcheck, expcheck, moneycheck;
 
     private String Cvv, CardNum, ExpDate;
+    private Stage stage;
+    private Scene scene;
 
-    public void submit(ActionEvent event) {
+    static ArrayList<Card> cardList = new ArrayList<>();
+    private final String REGEX_DIGITS = "\\d+";
+
+    YearMonth currentDate = YearMonth.now();
+    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MM/yy");
+    String formattedDate = currentDate.format(formatter);
+
+    public void submit(ActionEvent event) throws IOException {
         try {
             CardNum = cardnum.getText();
             Cvv = cvv.getText();
             ExpDate = expirationDate.getText();
+            String moneyInput = addMoneyField.getText();
 
-            if (CardNum.length() >= 12 && CardNum.length() <= 16 && CardNum.matches("[0-9]+")) {
+            boolean isCardValid = CardNum.length() >= 12 && CardNum.length() <= 16 && CardNum.matches(REGEX_DIGITS);
+            boolean isCvvValid = Cvv.length() >= 3 && Cvv.length() <= 4 && Cvv.matches(REGEX_DIGITS);
+            boolean isExpDateValid = ExpDate.length() == 5 && ExpDate.matches("(0[1-9]|1[0-2])/\\d{2}") &&
+                    formattedDate.compareTo(ExpDate) <= 0;
+            boolean isMoneyValid = false;
+
+            try {
+                double money = Double.parseDouble(moneyInput);
+                if (money > 0) {
+                    isMoneyValid = true;
+                }
+            } catch (NumberFormatException e) {
+                isMoneyValid = false;
+            }
+
+            if (isCardValid) {
                 cardcheck.setText("Valid card number");
                 cardcheck.setTextFill(Color.GREEN);
             } else {
@@ -65,7 +68,7 @@ public class PaymentController {
                 cardcheck.setTextFill(Color.RED);
             }
 
-            if (Cvv.length() >= 3 && Cvv.length() <= 4 && Cvv.matches("[0-9]+")) {
+            if (isCvvValid) {
                 cvvcheck.setText("Valid CVV");
                 cvvcheck.setTextFill(Color.GREEN);
             } else {
@@ -73,13 +76,35 @@ public class PaymentController {
                 cvvcheck.setTextFill(Color.RED);
             }
 
-            if (ExpDate.length() == 5 && ExpDate.matches("(0[1-9]|1[0-2])/\\d{2}")) {
+            if (isExpDateValid) {
                 expcheck.setText("Valid expiration date");
                 expcheck.setTextFill(Color.GREEN);
             } else {
                 expcheck.setText("Invalid expiration date. Must be MM/YY.");
                 expcheck.setTextFill(Color.RED);
             }
+
+            if (isMoneyValid) {
+                moneycheck.setText("Valid amount");
+                moneycheck.setTextFill(Color.GREEN);
+            } else {
+                moneycheck.setText("Invalid amount. Please enter a positive number.");
+                moneycheck.setTextFill(Color.RED);
+            }
+
+            if (isCardValid && isCvvValid && isExpDateValid && isMoneyValid) {
+                submitButton.setDisable(false);
+
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("carddone.fxml"));
+                Parent root = fxmlLoader.load();
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                scene = new Scene(root);
+                stage.setScene(scene);
+                stage.show();
+            } else {
+                submitButton.setDisable(true);
+            }
+
         } catch (Exception e) {
             cardcheck.setText("An error occurred. Please try again.");
             cardcheck.setTextFill(Color.RED);
@@ -87,19 +112,18 @@ public class PaymentController {
     }
 
     public void switchTopayment(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paymentcon.fxml"));
-        Parent root = fxmlLoader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        switchScene(event, "paymentcon.fxml");
     }
 
-    public void cardpaymentdone(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("carddone.fxml"));
+    public void Cardremoveorselect(ActionEvent event) throws IOException {
+        switchScene(event, "Cardremoveorselect.fxml");
+    }
+
+    private void switchScene(ActionEvent event, String fxmlFile) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource(fxmlFile));
         Parent root = fxmlLoader.load();
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        Scene scene = new Scene(root);
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
     }

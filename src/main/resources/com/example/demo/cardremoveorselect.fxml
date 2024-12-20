@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="396.0" prefWidth="586.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SelectAndRemoveCard">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="593.0" layoutX="2.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../imgs/deliv.jpeg" />
+         </image>
+      </ImageView>
+      <Label alignment="CENTER" layoutX="21.0" layoutY="4.0" prefHeight="42.0" prefWidth="554.0" text="please enter the number of saved card and select what you wish to do">
+         <font>
+            <Font name="HP Simplified Hans Regular" size="18.0" />
+         </font>
+      </Label>
+      <Label fx:id="cardvalid" alignment="CENTER" layoutX="7.0" layoutY="37.0" prefHeight="18.0" prefWidth="583.0" text="cardchecker" />
+      <Button fx:id="select" layoutX="468.0" layoutY="172.0" mnemonicParsing="false" onAction="#selectCard" text="select" />
+      <Button fx:id="Remove" layoutX="464.0" layoutY="228.0" mnemonicParsing="false" onAction="#removeCard" text="remove" />
+      <CheckBox fx:id="sure" layoutX="395.0" layoutY="210.0" mnemonicParsing="false" text="im sure i want to delete the card" />
+      <TextField fx:id="cardNumber" layoutX="215.0" layoutY="74.0" promptText="enter saved card num" />
+      <Button layoutX="465.0" layoutY="272.0" mnemonicParsing="false" onAction="#cardPayment" text="go back" />
+   </children>
+</AnchorPane>
