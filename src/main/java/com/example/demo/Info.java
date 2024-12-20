@@ -14,7 +14,7 @@ class Info {
     static Restaurant restaurant;
     static List<Restaurant> restaurants;
     static List<Review>reviewsRestaurant;
-    public void loadData(){
+    public static void loadData(){
         Restaurant restaurant = new Restaurant();
         restaurants = restaurant.loadData();
         Review rev=new Review();
