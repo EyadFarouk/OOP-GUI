@@ -53,6 +53,9 @@ public class CustomerInterfaceController{
     private Button ReviewButton;
 
     @FXML
+    private Label ReviewLabel;
+
+    @FXML
     private TextField Locationer;
 
     @FXML
@@ -192,6 +195,8 @@ public class CustomerInterfaceController{
         ReviewButton.setDisable(true);
         ReviewRectangle.setDisable(true);
         Reviewer.setDisable(true);
+        ReviewLabel.setDisable(true);
+        ReviewLabel.setOpacity(0.0);
         ReviewButton.setOpacity(0.0);
         ReviewRectangle.setOpacity(0.0);
         Reviewer.setOpacity(0.0);
@@ -209,20 +214,27 @@ public class CustomerInterfaceController{
     }
 
     public void setReview(){
-        Review review=new Review(restaurants.get(number));
-        for (Review value : reviewsRestaurant) {
-            if (value.restaurant.name.equals(restaurants.get(number).name)) {
-                review.number_of_reviewsR++;
+        if(Double.parseDouble(Reviewer.getText())>5.0||Double.parseDouble(Reviewer.getText())<0.0){
+            ReviewLabel.setDisable(false);
+            ReviewLabel.setOpacity(1.0);
+        }else{
+            Review review=new Review(restaurants.get(number));
+            for (Review value : reviewsRestaurant) {
+                if (value.restaurant.name.equals(restaurants.get(number).name)) {
+                    review.number_of_reviewsR++;
+                }
             }
+            ReviewLabel.setDisable(true);
+            ReviewLabel.setOpacity(0.0);
+            review.setReviewForRestaurant(Double.parseDouble(Reviewer.getText()));
+            reviewsRestaurant.add(review);
+            Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
+            ReviewButton.setDisable(true);
+            ReviewRectangle.setDisable(true);
+            Reviewer.setDisable(true);
+            ReviewButton.setOpacity(0.0);
+            ReviewRectangle.setOpacity(0.0);
+            Reviewer.setOpacity(0.0);
         }
-        review.setReviewForRestaurant(Double.parseDouble(Reviewer.getText()));
-        reviewsRestaurant.add(review);
-        Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
-        ReviewButton.setDisable(true);
-        ReviewRectangle.setDisable(true);
-        Reviewer.setDisable(true);
-        ReviewButton.setOpacity(0.0);
-        ReviewRectangle.setOpacity(0.0);
-        Reviewer.setOpacity(0.0);
     }
 }

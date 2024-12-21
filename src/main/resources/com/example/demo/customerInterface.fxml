@@ -101,7 +101,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle fx:id="ReviewRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="50.0" layoutY="253.0" stroke="BLACK" strokeType="INSIDE" width="200.0" />
+      <Rectangle fx:id="ReviewRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="210.0" layoutX="-2.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" width="310.0" />
       <TextField fx:id="Reviewer" layoutX="65.0" layoutY="318.0" promptText="Enter the review">
          <cursor>
             <Cursor fx:constant="TEXT" />
@@ -130,13 +130,18 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Rectangle fx:id="LocationRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="8.0" layoutY="253.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
-      <TextField fx:id="Locationer" layoutX="45.0" layoutY="318.0" prefHeight="24.0" prefWidth="210.0" promptText="Enter the location">
+      <Label fx:id="ReviewLabel" alignment="CENTER" layoutX="4.0" layoutY="242.0" prefHeight="70.0" prefWidth="299.0" text="Choose number between 0 and 5" textAlignment="CENTER" textFill="RED" wrapText="true">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+      <Rectangle fx:id="LocationRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="11.0" layoutY="248.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
+      <TextField fx:id="Locationer" layoutX="48.0" layoutY="313.0" prefHeight="24.0" prefWidth="210.0" promptText="Enter the location">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="LocationButton" alignment="CENTER" layoutX="87.0" layoutY="383.0" mnemonicParsing="false" onAction="#setSearch" prefHeight="40.0" prefWidth="126.0" text="Submit">
+      <Button fx:id="LocationButton" alignment="CENTER" layoutX="90.0" layoutY="378.0" mnemonicParsing="false" onAction="#setSearch" prefHeight="40.0" prefWidth="126.0" text="Submit">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>
@@ -144,7 +149,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Label fx:id="LocationLabel" alignment="CENTER" layoutX="21.0" layoutY="265.0" prefHeight="40.0" prefWidth="258.0" text="No restaurants found" textAlignment="CENTER" textFill="RED" wrapText="true">
+      <Label fx:id="LocationLabel" alignment="CENTER" layoutX="24.0" layoutY="260.0" prefHeight="40.0" prefWidth="258.0" text="No restaurants found" textAlignment="CENTER" textFill="RED" wrapText="true">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

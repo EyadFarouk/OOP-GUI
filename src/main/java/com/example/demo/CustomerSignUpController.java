@@ -309,6 +309,6 @@ public class CustomerSignUpController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gender.getItems().addAll(genders);
-        gender.setValue("Choose your gender");
+        gender.setValue("Male");
     }
 }
