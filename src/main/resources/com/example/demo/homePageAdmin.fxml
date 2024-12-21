@@ -20,7 +20,7 @@
             <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="delMenu" mnemonicParsing="false" prefHeight="33.0" prefWidth="320.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Menu" GridPane.columnIndex="1" GridPane.halignment="LEFT">
+            <Button fx:id="delMenu" mnemonicParsing="false" onAction="#deleteMenu" prefHeight="33.0" prefWidth="320.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Menu" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>

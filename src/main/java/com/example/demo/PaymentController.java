@@ -24,7 +24,6 @@ public class PaymentController {
     }
 
     public void switchtoPayment(ActionEvent event) throws IOException {
-
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("paymentdone.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
