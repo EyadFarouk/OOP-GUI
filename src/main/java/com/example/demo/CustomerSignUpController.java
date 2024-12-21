@@ -24,7 +24,7 @@ import java.util.Scanner;
 
 import static Project.Person.Customer.userList;
 
-public class CustomerSignUpController implements Initializable {
+public class CustomerSignUpController{
 
     private Scene scene;
     private Stage stage;
@@ -306,7 +306,6 @@ public class CustomerSignUpController implements Initializable {
         stage.show();
     }
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gender.getItems().addAll(genders);
         gender.setValue("Male");

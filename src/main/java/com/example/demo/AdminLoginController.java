@@ -1,11 +1,10 @@
 package com.example.demo;
 
-import Project.Person.Customer;
+import Project.Person.Admin;
 import Project.UI.Notification;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -19,15 +18,15 @@ import java.net.URL;
 import java.util.Random;
 import java.util.ResourceBundle;
 
-import static Project.Person.Customer.userList;
+import static Project.Person.Admin.adminList;
 import static com.example.demo.Info.restaurants;
 
-public class CustomerLoginController{
+public class AdminLoginController {
     private Scene scene;
     private Stage stage;
     private Parent root;
 
-    static Customer customer;
+    static Admin admin;
 
     @FXML
     private TextField Email;
@@ -42,31 +41,31 @@ public class CustomerLoginController{
     protected void checkIfValid(ActionEvent event) throws IOException {
         String email= Email.getText();
         String password= Password.getText();
-        for (int i = 0; i < userList.size(); i++) {
-            if (email.equalsIgnoreCase(userList.get(i).getEmail())) {
-                if (password.equals(userList.get(i).getPassword())) {
+        for (int i = 0; i < adminList.size(); i++) {
+            if (email.equalsIgnoreCase(adminList.get(i).getEmail())) {
+                if (password.equals(adminList.get(i).getPassword())) {
                     label.setText("Login successful, nigga");
                     label.setTextFill(Color.GREEN);
-                    customer = userList.get(i);
-                    Info.customer = customer;
+                    admin = adminList.get(i);
+                    Info.admin = admin;
                     Random random=new Random();
                     int h=random.nextInt(restaurants.size());
-                    Notification notification=new Notification(customer.getFname(),restaurants.get(h).name);
+                    Notification notification=new Notification(admin.getFname(),restaurants.get(h).name);
                     notification.start();
                     switchSceneToInterface(event);
-                } else if (i == userList.size() - 1) {
+                } else if (i == adminList.size() - 1) {
                     label.setText("The email or password is incorrect");
                     label.setTextFill(Color.RED);
                 }
-            } else if (i == userList.size() - 1) {
+            } else if (i == adminList.size() - 1) {
                 label.setText("The email could not be found");
                 label.setTextFill(Color.RED);
             }
         }
     }
 
-    public void switchSceneToCustomerLoginOrSignUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerLoginOrSignUp.fxml"));
+    public void switchSceneToAdminLoginOrSignUp(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminLoginOrSignUp.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -75,7 +74,7 @@ public class CustomerLoginController{
     }
 
     private void switchSceneToInterface(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerInterface.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminInterface.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -84,7 +83,7 @@ public class CustomerLoginController{
     }
 
     public void initialize() {
-        Email.setText("EyAd@gMaiL.com");
+        Email.setText("EyAdAdMiN@gMaiL.com");
         Password.setText("Hello@test123");
     }
 }

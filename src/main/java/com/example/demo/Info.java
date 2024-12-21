@@ -11,6 +11,7 @@ import Project.Resturants.Review;
 import java.util.List;
 
 class Info {
+    static Admin admin;
     static Customer customer;
     static Restaurant restaurant;
     static Delivery_Staff delivery_Staff;

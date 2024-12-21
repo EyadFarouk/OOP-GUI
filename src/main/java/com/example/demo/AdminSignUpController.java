@@ -132,6 +132,7 @@ public class AdminSignUpController implements Initializable {
         }else{
             if(email.getText().endsWith("@gmail.com")||email.getText().endsWith("@yahoo.com")||email.getText().endsWith("@outlook.com")||email.getText().endsWith("@email.com")){
                 Email_label.setText("");
+                Email_label.setTextFill(Color.GREEN);
             }
             else {
                 Email_label.setTextFill(Color.DARKORANGE);
@@ -148,9 +149,15 @@ public class AdminSignUpController implements Initializable {
             Phone_label.setFont(Font.font("System",FontWeight.BOLD,20));
         }else{
             if(phone.getText().matches("^[0-9]*$")){
-                Phone_label.setTextFill(Color.GREEN);
-                Phone_label.setText("Nice Number you got there UwU");
-                Phone_label.setFont(Font.font("System",FontWeight.BOLD,20));
+                if(phone.getText().length()==11){
+                    Phone_label.setTextFill(Color.GREEN);
+                    Phone_label.setText("Nice Number you got there UwU");
+                    Phone_label.setFont(Font.font("System", FontWeight.BOLD, 20));
+                }else {
+                    Phone_label.setTextFill(Color.RED);
+                    Phone_label.setText("The phone must have 11 digits");
+                    Phone_label.setFont(Font.font("System", FontWeight.BOLD,22));
+                }
             }else{
                 Phone_label.setTextFill(Color.RED);
                 Phone_label.setText("The phone cannot contain non-numeric values");
@@ -210,40 +217,41 @@ public class AdminSignUpController implements Initializable {
                     + "(?=\\S+$).{8,20}$"))                //Checks if the password has at least 8 characters and has no white spaces
             {
                 Password_label.setTextFill(Color.GREEN);
-                Password_label.setText("Your password is sexy. UwU");
+                Password_label.setText("Your password is amazing. UwU");
                 Password_label.setFont(Font.font("System",FontWeight.BOLD,20));
-            }else{
-                if (password.getText().length() < 8)
-                    Eight_label.setTextFill(Color.RED);
-                else
-                    Eight_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches(".*\\d.*")) {
-                    Number_label.setTextFill(Color.RED);
-                }else
-                    Number_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches(".*[a-z].*")) {
-                    Small_label.setTextFill(Color.RED);
-                }else
-                    Small_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches(".*[A-Z].*")) {
-                    Capital_label.setTextFill(Color.RED);
-                }else
-                    Capital_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches("^.*[!@#$%^&-+=()*].*")) {
-                    Special_label.setTextFill(Color.RED);
-                }else
-                    Special_label.setTextFill(Color.GREEN);
-                if (password.getText().contains(" ")) {
-                    Space_label.setTextFill(Color.RED);
-                }else
-                    Space_label.setTextFill(Color.GREEN);
             }
+            if (password.getText().length() < 8)
+                Eight_label.setTextFill(Color.RED);
+            else
+                Eight_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches(".*\\d.*")) {
+                Number_label.setTextFill(Color.RED);
+            }else
+                Number_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches(".*[a-z].*")) {
+                Small_label.setTextFill(Color.RED);
+            }else
+                Small_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches(".*[A-Z].*")) {
+                Capital_label.setTextFill(Color.RED);
+            }else
+                Capital_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches("^.*[!@#$%^&-+=()*].*")) {
+                Special_label.setTextFill(Color.RED);
+            }else
+                Special_label.setTextFill(Color.GREEN);
+            if (password.getText().contains(" ")) {
+                Space_label.setTextFill(Color.RED);
+            }else
+                Space_label.setTextFill(Color.GREEN);
+
         }
     }
+
     private boolean checkEmailUnique(){
         boolean exists=false;
         for (Admin admin : adminList) {
-            if (email.getText().equals(admin.getEmail())) {
+            if (email.getText().equalsIgnoreCase(admin.getEmail())) {
                 return false;
             }
         }
@@ -252,25 +260,25 @@ public class AdminSignUpController implements Initializable {
 
     public void validateInputAndSignUp(ActionEvent event) throws IOException {
         if(!checkEmailUnique()){
-            Email_label.setTextFill(Color.RED);
+            Email_label.setTextFill(Color.DARKORANGE);
             Email_label.setText("The email should be unique");
             Email_label.setFont(Font.font("System",FontWeight.BOLD,20));
             return;
         }
-        if(Email_label.getTextFill()==Color.GREEN
-                ||Password_label.getTextFill()==Color.GREEN
-                ||Fname_label.getTextFill()==Color.GREEN
-                ||Lname_label.getTextFill()==Color.GREEN
-                ||Age_label.getTextFill()==Color.GREEN
-                ||!(address.getText().isEmpty())
-                ||Phone_label.getTextFill()==Color.GREEN){
+        if(!(Email_label.getTextFill()==Color.DARKORANGE)
+                &&Password_label.getTextFill()==Color.GREEN
+                &&Fname_label.getTextFill()==Color.GREEN
+                &&Lname_label.getTextFill()==Color.GREEN
+                &&Age_label.getTextFill()==Color.GREEN
+                &&!(address.getText().isEmpty())
+                &&Phone_label.getTextFill()==Color.GREEN){
             Admin admin = new Admin();
             admin.setFname(firstName.getText());
             admin.setLname(lastName.getText());
-            admin.setEmail(email.getText());
+            admin.setEmail(email.getText().toLowerCase());
             admin.setPhone(phone.getText());
             admin.setAge(Integer.parseInt(age.getText()));
-            admin.setAddress(address.getText());
+            admin.setAddress(address.getText().toLowerCase());
             admin.setPassword(password.getText());
             admin.setGender(gender.getValue());
             adminList.add(admin);
@@ -283,7 +291,7 @@ public class AdminSignUpController implements Initializable {
             stage.show();
         }
     }
-    public void switchSceneToadminLoginOrSignUp(ActionEvent event) throws IOException {
+    public void switchSceneToAdminLoginOrSignUp(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("adminLoginOrSignUp.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
@@ -292,9 +300,8 @@ public class AdminSignUpController implements Initializable {
         stage.show();
     }
 
-    @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         gender.getItems().addAll(genders);
-        gender.setValue("Choose your gender");
+        gender.setValue("Male");
     }
 }
