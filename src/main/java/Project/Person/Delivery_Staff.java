@@ -19,7 +19,7 @@ public class Delivery_Staff extends User implements saveAndLoad {
 
     private double rating;               //kept private to be set by admin only
     String Location;
-    static List<Delivery_Staff> staffList=new ArrayList<>();
+    public static List<Delivery_Staff> staffList=new ArrayList<>();
 
     /**
      * Constructor to instantiate delivery man

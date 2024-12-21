@@ -132,9 +132,9 @@ public class Restaurant extends Menu implements Comparable<Restaurant>, Checker 
      * this method to get actual location of restaurant on Google map
      * */
     public void getLocation() throws URISyntaxException, IOException {
-        if (Desktop.isDesktopSupported() && Desktop.getDesktop().isSupported(Desktop.Action.BROWSE)) {
-            Desktop.getDesktop().browse(new URI(uri));
-        }
+        RestaurantLocation restaurantLocation=new RestaurantLocation();
+        restaurantLocation.uri=this.uri;
+        restaurantLocation.start();
     }
     /**
      * this method to sort object with the rating
@@ -223,4 +223,3 @@ public class Restaurant extends Menu implements Comparable<Restaurant>, Checker 
         return this.name + '\n' + this.address + '\n' + this.contactInformation + '\n' + this.rating + '\n' + this.menu +"\n\n";
     }
 }
-

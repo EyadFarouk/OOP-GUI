@@ -199,4 +199,8 @@ public class Customer extends User implements saveAndLoad {
     public void setDeliveryAddress(String deliveryAddress) {
         this.deliveryAddress = deliveryAddress;
     }
+
+    public String getDeliveryAddress() {
+        return deliveryAddress;
+    }
 }

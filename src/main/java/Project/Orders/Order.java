@@ -1,40 +1,37 @@
 package Project.Orders;
 
-
-
+import Project.Interfaces.checkNumberValid;
 import Project.Payment.Card;
 import Project.Resturants.Dish;
 import Project.Resturants.Restaurant;
 
 import java.io.*;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 
 /**
  * this class is responsible for the orders
  */
-public class Order {
+public class Order implements checkNumberValid {
     private String orderId;
     private Date orderDate;
-    private  static List<Dish> foodItems=new ArrayList<>();
+    public   static List<Dish> foodItems=new ArrayList<>();
+    public static List<Integer>quantites=new ArrayList<Integer>();
     private double totalPrice;
     private String orderLocation;
-    // state of the order (Pending, Completed, Canceled)
+   // state of the order (Pending, Completed, Canceled)
     private OrderState orderState;
+    private String emailUser;
     /**
      * this is the constructor and it takes two parameters
      * @param orderLocation the location the order is headed to
      * @param orderState the current state of the order
      */
-    public Order(String orderLocation, OrderState orderState) {
+    public Order(String orderLocation, OrderState orderState,String emailUser) {
         this.orderId = generateRandomOrderId();
         this.orderDate = new Date();
-        //foodItems = new ArrayList<>();
-        // this.totalPrice = 0.0;
         this.orderLocation = orderLocation;
         this.orderState = orderState;
+        this.emailUser=emailUser;
     }
 
     /**
@@ -42,6 +39,13 @@ public class Order {
      */
     public Order(){}
 
+    public void setEmailUser(String emailUser) {
+        this.emailUser = emailUser;
+    }
+
+    public String getEmailUser() {
+        return emailUser;
+    }
     // Generate a random order ID using UUID
 
     /**
@@ -59,23 +63,34 @@ public class Order {
      * @param dish it takes a dish object
      */
     public void addFoodItem(Dish dish) {
+        Scanner scanner=new Scanner(System.in);
         foodItems.add(dish);
-        totalPrice += dish.price; // update total price
+        System.out.println("Please enter how much you would like to order : ");
+        int number= scanner.nextInt();
+        quantites.add(number);
+        totalPrice += (dish.price*number); // update total price
     }
 
     /**
      * this method uses the addFoodItem method to create new orders
      */
-    public void makeOrder(){
+        public void makeOrder(){
         if (foodItems.isEmpty()){
             System.out.println("you should choose food first");
             return;
         }
-        System.out.println("order include : ");
+        System.out.println("order includes : ");
         Restaurant restaurant=new Restaurant();
         restaurant.displayMenu(foodItems);
         Card card=new Card();
-        card.SelectCard();
+        System.out.println("if you want to pay with card please enter 1 : ");
+        System.out.println("if you want to pay cash please enter 2 : ");
+        int number=checkNumber(1,2,"number is wrong try again");
+        if (number==1){
+            card.SelectCard();
+        }else if (number==2){
+            System.out.println("total price is : "+totalPrice);
+        }
     }
 
     /* === Getters === */
@@ -94,7 +109,7 @@ public class Order {
      * gets the order's total price
      * @return returns order total price
      */
-    public double getOrderPrice() { return totalPrice; }
+    public  double getOrderPrice() { return totalPrice; }
     /**
      * gets the order location
      * @return returns order location
@@ -105,6 +120,9 @@ public class Order {
      * @return returns order state
      */
     public OrderState getOrderState() { return orderState; }
+    public void setTotalPrice(double totalPrice){
+        this.totalPrice=totalPrice;
+    }
 
     /* === Setters ===*/
 
@@ -135,9 +153,10 @@ public class Order {
         try {
             BufferedWriter bufferedWriter=new BufferedWriter(new FileWriter("Data/orders.txt"));
             for (Order order:orders){
-                if (order.orderState==OrderState.Delivered){
+                if (order.orderState== OrderState.Delivered||order.orderState==OrderState.Canceled){
                     continue;
                 }
+                bufferedWriter.write(order.emailUser+'\n');
                 bufferedWriter.write(order.orderId+'\n');
                 bufferedWriter.write(order.orderLocation+'\n');
                 bufferedWriter.write(String.valueOf(order.orderState)+'\n');
@@ -149,13 +168,21 @@ public class Order {
         }
 
     }
+    public void setOrderId(String orderId){
+        this.orderId=orderId;
+    }
+    public void setOrderLocation(String location){
+        this.orderLocation=location;
+    }
     public List<Order>loadData(){
         List <Order>orders=new ArrayList<>();
         try {
             BufferedReader bufferedReader=new BufferedReader(new FileReader("Data/orders.txt"));
             String line;
             Order order=new Order();
-            while ((line=bufferedReader.readLine())!=null){
+            while ((line = bufferedReader.readLine())!=null){
+                order.emailUser=line;
+                line=bufferedReader.readLine();
                 order.orderId=line;
                 line= bufferedReader.readLine();
                 order.orderLocation=line;

@@ -24,6 +24,9 @@ public class Card implements checkNumberValid, saveAndLoad {
     String formattedDate = currentDate.format(formatter);
     Scanner scanner = new Scanner(System.in);
 
+    /**
+     * Creates sample card instances and adds them to the card list.
+     */
     public static void instance() {
         Card card = new Card();
         card.CardNum = "1234565431";
@@ -47,38 +50,74 @@ public class Card implements checkNumberValid, saveAndLoad {
         cardList.add(card3);
     }
 
+    /**
+     * Retrieves the card number.
+     * @return The card number.
+     */
     public String getCardNum() {
         return CardNum;
     }
 
+    /**
+     * Sets the card number.
+     * @param CardNum The card number to set.
+     */
     public void setCardNum(String CardNum) {
         this.CardNum = CardNum;
     }
 
+    /**
+     * Retrieves the CVV.
+     * @return The CVV.
+     */
     public String getCvv() {
         return Cvv;
     }
 
+    /**
+     * Sets the CVV.
+     * @param Cvv The CVV to set.
+     */
     public void setCvv(String Cvv) {
         this.Cvv = Cvv;
     }
 
+    /**
+     * Retrieves the expiration date.
+     * @return The expiration date.
+     */
     public String getExpirationDate() {
         return ExpirationDate;
     }
 
+    /**
+     * Sets the expiration date.
+     * @param ExpirationDate The expiration date to set.
+     */
     public void setExpirationDate(String ExpirationDate) {
         this.ExpirationDate = ExpirationDate;
     }
 
+    /**
+     * Retrieves the amount of money available on the card.
+     * @return The available balance.
+     */
     public double getMoneyAvailable() {
         return MoneyAvailable;
     }
 
+    /**
+     * Sets the amount of money available on the card.
+     * @param MoneyAvailable The balance to set.
+     */
     public void setMoneyAvailable(double MoneyAvailable) {
         this.MoneyAvailable = MoneyAvailable;
     }
 
+    /**
+     * Adds a new card to the card list after validating user input.
+     * @param card The card object to add.
+     */
     public void AddNewCard(Card card) {
         System.out.print("Please enter your Card number: ");
         while (true) {
@@ -103,10 +142,9 @@ public class Card implements checkNumberValid, saveAndLoad {
         System.out.print("Enter Expiration Date (YY/MM): ");
         while (true) {
             this.ExpirationDate = scanner.nextLine();
-            if (formattedDate.compareTo(this.ExpirationDate) < 0 && this.ExpirationDate.matches("\\d{2}/\\d{2}")) {
+            if (formattedDate.compareTo(this.ExpirationDate) >= 0 && this.ExpirationDate.matches(Regex)) {
                 System.out.println("Please enter money available:");
                 this.MoneyAvailable = scanner.nextDouble();
-                scanner.nextLine();
                 cardList.add(this);
                 System.out.println("Card is valid and has been saved.");
                 break;
@@ -116,6 +154,10 @@ public class Card implements checkNumberValid, saveAndLoad {
         }
     }
 
+    /**
+     * Removes a card from the card list based on user input.
+     * @param card The card object to remove.
+     */
     public void removeCard(Card card) {
         for (int i = 0; i < cardList.size(); i++) {
             System.out.println("Enter the number of the Card:");
@@ -127,6 +169,10 @@ public class Card implements checkNumberValid, saveAndLoad {
         }
     }
 
+    /**
+     * Allows the user to select a card by entering its details.
+     * @return The selected card, or null if not found or incorrect details entered.
+     */
     public Card SelectCard() {
         System.out.println("Please enter the number of the Card you wish to use: ");
         String inputCardNum = scanner.nextLine();
@@ -154,6 +200,9 @@ public class Card implements checkNumberValid, saveAndLoad {
         return null;
     }
 
+    /**
+     * Saves card data to a CSV file.
+     */
     @Override
     public void saveData() {
         FileWriter fw;
@@ -178,13 +227,15 @@ public class Card implements checkNumberValid, saveAndLoad {
             }
         }
     }
-
+    /**
+     * Loads card data from a CSV file.
+     */
     @Override
     public void loadData() {
         try {
             FileReader fr = new FileReader("Data/CardData.csv");
             BufferedReader br = new BufferedReader(fr);
-            br.readLine();
+            br.readLine(); // Skip header
             String line;
             while ((line = br.readLine()) != null) {
                 Card card = new Card();
@@ -205,7 +256,10 @@ public class Card implements checkNumberValid, saveAndLoad {
             System.out.println(e.getMessage());
         }
     }
-
+    /**
+     * Converts the card details to a string format for saving.
+     * @return A comma-separated string of card details.
+     */
     @Override
     public String toString() {
         return this.CardNum + ',' + this.Cvv + ',' + this.ExpirationDate + ',' + this.MoneyAvailable + '\n';
