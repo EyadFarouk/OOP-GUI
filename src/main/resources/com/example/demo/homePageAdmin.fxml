@@ -32,7 +32,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button fx:id="delRestaurant" mnemonicParsing="false" prefHeight="33.0" prefWidth="298.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Restaurant" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+            <Button fx:id="delRestaurant" mnemonicParsing="false" onAction="#deleteRestaurant" prefHeight="33.0" prefWidth="298.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Restaurant" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>

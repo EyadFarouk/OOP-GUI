@@ -48,10 +48,6 @@ public class AdminLoginController {
                     label.setTextFill(Color.GREEN);
                     admin = adminList.get(i);
                     Info.admin = admin;
-                    Random random=new Random();
-                    int h=random.nextInt(restaurants.size());
-                    Notification notification=new Notification(admin.getFname(),restaurants.get(h).name);
-                    notification.start();
                     switchSceneToInterface(event);
                 } else if (i == adminList.size() - 1) {
                     label.setText("The email or password is incorrect");
