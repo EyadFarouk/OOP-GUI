@@ -61,7 +61,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="357.0" layoutY="430.0" mnemonicParsing="false" onAction="#Previous" prefHeight="49.0" prefWidth="112.0" text="&lt;" textFill="RED">
+      <Button alignment="CENTER" layoutX="361.0" layoutY="397.0" mnemonicParsing="false" onAction="#Previous" prefHeight="49.0" prefWidth="112.0" text="&lt;" textFill="RED">
          <font>
             <Font size="26.0" />
          </font>
@@ -69,7 +69,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="680.0" layoutY="430.0" mnemonicParsing="false" onAction="#Next" prefHeight="49.0" prefWidth="112.0" text="&gt;" textFill="RED">
+      <Button alignment="CENTER" layoutX="684.0" layoutY="397.0" mnemonicParsing="false" onAction="#Next" prefHeight="49.0" prefWidth="112.0" text="&gt;" textFill="RED">
          <font>
             <Font size="26.0" />
          </font>
@@ -77,7 +77,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="507.0" layoutY="430.0" mnemonicParsing="false" onAction="#chooseRestaurant" prefHeight="49.0" prefWidth="148.0" text="Select">
+      <Button alignment="CENTER" layoutX="511.0" layoutY="397.0" mnemonicParsing="false" onAction="#chooseRestaurant" prefHeight="49.0" prefWidth="148.0" text="Select">
          <font>
             <Font name="System Bold" size="26.0" />
          </font>
@@ -85,7 +85,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="312.0" layoutY="500.0" mnemonicParsing="false" onAction="#getLocation" prefHeight="49.0" prefWidth="202.0" text="Location in maps">
+      <Button alignment="CENTER" layoutX="316.0" layoutY="464.0" mnemonicParsing="false" onAction="#getLocation" prefHeight="49.0" prefWidth="202.0" text="Location in maps">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
@@ -93,7 +93,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="662.0" layoutY="499.0" mnemonicParsing="false" onAction="#review" prefHeight="49.0" prefWidth="148.0" text="Review">
+      <Button alignment="CENTER" layoutX="666.0" layoutY="463.0" mnemonicParsing="false" onAction="#review" prefHeight="49.0" prefWidth="148.0" text="Review">
          <font>
             <Font name="System Bold" size="27.0" />
          </font>
@@ -114,5 +114,40 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
+      <Button fx:id="CancelOrder" alignment="CENTER" layoutY="525.0" mnemonicParsing="false" onAction="#CancelOrder" prefHeight="49.0" prefWidth="202.0" text="Cancel last order" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Button alignment="CENTER" layoutX="467.0" layoutY="525.0" mnemonicParsing="false" onAction="#searchLocation" prefHeight="49.0" prefWidth="223.0" text="Search by location">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Rectangle fx:id="LocationRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="200.0" layoutX="8.0" layoutY="253.0" stroke="BLACK" strokeType="INSIDE" width="284.0" />
+      <TextField fx:id="Locationer" layoutX="45.0" layoutY="318.0" prefHeight="24.0" prefWidth="210.0" promptText="Enter the location">
+         <cursor>
+            <Cursor fx:constant="TEXT" />
+         </cursor>
+      </TextField>
+      <Button fx:id="LocationButton" alignment="CENTER" layoutX="87.0" layoutY="383.0" mnemonicParsing="false" onAction="#setReview" prefHeight="40.0" prefWidth="126.0" text="Submit">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
+      <Label fx:id="LocationLabel" alignment="CENTER" layoutX="21.0" layoutY="265.0" prefHeight="40.0" prefWidth="258.0" text="No restaurants found" textAlignment="CENTER" textFill="RED" wrapText="true">
+         <font>
+            <Font name="System Bold" size="21.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

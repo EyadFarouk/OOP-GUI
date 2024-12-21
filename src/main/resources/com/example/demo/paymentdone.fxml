@@ -7,18 +7,18 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="400.0" prefWidth="602.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.SceneChanger">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CardDoneController">
    <children>
-      <ImageView fitHeight="412.0" fitWidth="602.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="414.0" fitWidth="637.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../../imgs/deliv.jpeg" />
          </image>
       </ImageView>
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="52.0" prefHeight="74.0" prefWidth="496.0" text="you food is on the way sit back and relax while it arrivers">
+      <Button layoutX="534.0" layoutY="361.0" mnemonicParsing="false" onAction="#switchToInterface" text="go back" />
+      <Label alignment="CENTER" layoutX="37.0" layoutY="-2.0" prefHeight="52.0" prefWidth="526.0" text="food is on the way sit back and relax while i arrives">
          <font>
-            <Font name="HP Simplified Hans Regular" size="20.0" />
+            <Font name="HP Simplified" size="20.0" />
          </font>
       </Label>
-      <Button layoutX="294.0" layoutY="362.0" mnemonicParsing="false" onAction="#switchTopayment" text="go back" />
    </children>
 </AnchorPane>

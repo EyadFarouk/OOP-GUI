@@ -152,9 +152,15 @@ public class CustomerSignUpController implements Initializable {
             Phone_label.setFont(Font.font("System",FontWeight.BOLD,20));
         }else{
             if(phone.getText().matches("^[0-9]*$")){
-                Phone_label.setTextFill(Color.GREEN);
-                Phone_label.setText("Nice Number you got there UwU");
-                Phone_label.setFont(Font.font("System",FontWeight.BOLD,20));
+                if(phone.getText().length()==11){
+                    Phone_label.setTextFill(Color.GREEN);
+                    Phone_label.setText("Nice Number you got there UwU");
+                    Phone_label.setFont(Font.font("System", FontWeight.BOLD, 20));
+                }else {
+                    Phone_label.setTextFill(Color.RED);
+                    Phone_label.setText("The phone must have 11 digits");
+                    Phone_label.setFont(Font.font("System", FontWeight.BOLD,22));
+                }
             }else{
                 Phone_label.setTextFill(Color.RED);
                 Phone_label.setText("The phone cannot contain non-numeric values");
@@ -214,34 +220,34 @@ public class CustomerSignUpController implements Initializable {
                     + "(?=\\S+$).{8,20}$"))                //Checks if the password has at least 8 characters and has no white spaces
             {
                 Password_label.setTextFill(Color.GREEN);
-                Password_label.setText("Your password is sexy. UwU");
+                Password_label.setText("Your password is amazing. UwU");
                 Password_label.setFont(Font.font("System",FontWeight.BOLD,20));
-            }else{
-                if (password.getText().length() < 8)
-                    Eight_label.setTextFill(Color.RED);
-                else
-                    Eight_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches(".*\\d.*")) {
-                    Number_label.setTextFill(Color.RED);
-                }else
-                    Number_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches(".*[a-z].*")) {
-                    Small_label.setTextFill(Color.RED);
-                }else
-                    Small_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches(".*[A-Z].*")) {
-                    Capital_label.setTextFill(Color.RED);
-                }else
-                    Capital_label.setTextFill(Color.GREEN);
-                if (!password.getText().matches("^.*[!@#$%^&-+=()*].*")) {
-                    Special_label.setTextFill(Color.RED);
-                }else
-                    Special_label.setTextFill(Color.GREEN);
-                if (password.getText().contains(" ")) {
-                    Space_label.setTextFill(Color.RED);
-                }else
-                    Space_label.setTextFill(Color.GREEN);
             }
+            if (password.getText().length() < 8)
+                Eight_label.setTextFill(Color.RED);
+            else
+                Eight_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches(".*\\d.*")) {
+                Number_label.setTextFill(Color.RED);
+            }else
+                Number_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches(".*[a-z].*")) {
+                Small_label.setTextFill(Color.RED);
+            }else
+                Small_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches(".*[A-Z].*")) {
+                Capital_label.setTextFill(Color.RED);
+            }else
+                Capital_label.setTextFill(Color.GREEN);
+            if (!password.getText().matches("^.*[!@#$%^&-+=()*].*")) {
+                Special_label.setTextFill(Color.RED);
+            }else
+                Special_label.setTextFill(Color.GREEN);
+            if (password.getText().contains(" ")) {
+                Space_label.setTextFill(Color.RED);
+            }else
+                Space_label.setTextFill(Color.GREEN);
+
         }
     }
 

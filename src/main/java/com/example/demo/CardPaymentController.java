@@ -95,7 +95,7 @@ public class CardPaymentController {
             if (isCardValid && isCvvValid && isExpDateValid && isMoneyValid) {
                 submitButton.setDisable(false);
 
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("carddone.fxml"));
+                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardDone.fxml"));
                 Parent root = fxmlLoader.load();
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 scene = new Scene(root);

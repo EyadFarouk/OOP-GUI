@@ -17,12 +17,12 @@
             <Image url="@../../../imgs/pay.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="185.0" layoutY="160.0" mnemonicParsing="false" onAction="#cardPyament" text="pay with card">
+      <Button layoutX="185.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchtoPayment" text="pay with card">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
-      <Button layoutX="425.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchTocash" text="pay with cash">
+      <Button layoutX="425.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchtoPayment" text="pay with cash">
          <font>
             <Font size="15.0" />
          </font>
@@ -48,7 +48,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Button layoutX="317.0" layoutY="230.0" mnemonicParsing="false" text="go back">
+      <Button layoutX="317.0" layoutY="230.0" mnemonicParsing="false" onAction="#switchToCustomerChoseRestaurant" text="go back">
          <font>
             <Font size="15.0" />
          </font>

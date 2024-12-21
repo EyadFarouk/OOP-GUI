@@ -59,7 +59,7 @@ public class SelectAndRemoveCard {
         }
 
         if (cardFound) {
-            switchScene(event, "carddone.fxml");
+            switchScene(event, "cardDone.fxml");
         } else {
             cardvalid.setText("Card not found or incorrect number entered.");
         }

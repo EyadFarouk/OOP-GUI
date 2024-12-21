@@ -14,6 +14,7 @@ class Info {
     static Customer customer;
     static Restaurant restaurant;
     static Delivery_Staff delivery_Staff;
+    static boolean cancel=false;
 
     static List<Restaurant> restaurants;
     static List<Review>reviewsRestaurant;

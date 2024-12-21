@@ -79,6 +79,7 @@ public class deliveryInterfaceController {
         OrderRectangle.setOpacity(0.0);
         Orderer.setOpacity(0.0);
         disappearStatus();
+
     }
 
     public void switchSceneToWelcome(ActionEvent event) throws IOException {

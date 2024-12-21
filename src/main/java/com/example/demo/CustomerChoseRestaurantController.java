@@ -24,6 +24,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.example.demo.Info.cancel;
+import static com.example.demo.Info.orders;
+
 public class CustomerChoseRestaurantController {
     private Scene scene;
     private Stage stage;
@@ -72,6 +75,9 @@ public class CustomerChoseRestaurantController {
     @FXML
     private Label Warning;
 
+    @FXML
+    private Button CancelOrder;
+
     public void initialize(){
         dishList = Info.restaurant.menu;
         Restaurant.setText(Info.restaurant.name);
@@ -89,6 +95,19 @@ public class CustomerChoseRestaurantController {
         OrderRectangle.setOpacity(0.0);
         Orderer.setOpacity(0.0);
         Order.setOpacity(0.0);
+        if(cancel){
+            CancelOrder.setDisable(false);
+            CancelOrder.setOpacity(1.0);
+        }else{
+            CancelOrder.setDisable(true);
+            CancelOrder.setOpacity(0.0);
+        }
+    }
+
+    public void CancelOrder(){
+        orders.removeLast();
+        CancelOrder.setDisable(true);
+        CancelOrder.setOpacity(0.0);
     }
 
     public void Previous(){
@@ -131,8 +150,8 @@ public class CustomerChoseRestaurantController {
     }
 
     public void switchToCustomerInterface(ActionEvent event) throws IOException {
-        if(!dishList.isEmpty())
-            dishList.clear();
+        if(!foodItems.isEmpty())
+            foodItems.clear();
         if(!quantites.isEmpty())
             quantites.clear();
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerInterface.fxml"));

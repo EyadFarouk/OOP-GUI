@@ -125,5 +125,13 @@
             <Font name="System Bold" size="33.0" />
          </font>
       </Label>
+      <Button fx:id="CancelOrder" alignment="CENTER" layoutX="10.0" layoutY="535.0" mnemonicParsing="false" onAction="#CancelOrder" prefHeight="49.0" prefWidth="202.0" text="Cancel last order" textFill="RED">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Button>
    </children>
 </AnchorPane>
