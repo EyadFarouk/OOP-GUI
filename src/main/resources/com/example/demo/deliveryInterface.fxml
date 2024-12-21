@@ -61,7 +61,7 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button alignment="CENTER" layoutX="410.0" layoutY="433.0" mnemonicParsing="false" onAction="#Previous" prefHeight="49.0" prefWidth="56.0" text="&lt;" textFill="RED">
+      <Button alignment="CENTER" layoutX="398.0" layoutY="433.0" mnemonicParsing="false" onAction="#Previous" prefHeight="49.0" prefWidth="68.0" text="&lt;" textFill="RED">
          <font>
             <Font size="26.0" />
          </font>
@@ -69,7 +69,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button alignment="CENTER" layoutX="767.0" layoutY="433.0" mnemonicParsing="false" onAction="#Next" prefHeight="49.0" prefWidth="48.0" text="&gt;" textFill="RED">
+      <Button alignment="CENTER" layoutX="767.0" layoutY="433.0" mnemonicParsing="false" onAction="#Next" prefHeight="49.0" prefWidth="68.0" text="&gt;" textFill="RED">
          <font>
             <Font size="26.0" />
          </font>

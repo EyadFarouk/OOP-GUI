@@ -136,6 +136,7 @@ public class CustomerSignUpController implements Initializable {
      }else{
          if(email.getText().endsWith("@gmail.com")||email.getText().endsWith("@yahoo.com")||email.getText().endsWith("@outlook.com")||email.getText().endsWith("@email.com")){
              Email_label.setText("");
+             Email_label.setTextFill(Color.GREEN);
          }
          else {
              Email_label.setTextFill(Color.DARKORANGE);
@@ -254,7 +255,7 @@ public class CustomerSignUpController implements Initializable {
     private boolean checkEmailUnique(){
         boolean exists=false;
         for (Customer customer : userList) {
-            if (email.getText().equals(customer.getEmail())) {
+            if (email.getText().equalsIgnoreCase(customer.getEmail())) {
                 return false;
             }
         }
@@ -263,19 +264,19 @@ public class CustomerSignUpController implements Initializable {
 
     public void validateInputAndSignUp(ActionEvent event) throws IOException {
         if(!checkEmailUnique()){
-            Email_label.setTextFill(Color.RED);
+            Email_label.setTextFill(Color.DARKORANGE);
             Email_label.setText("The email should be unique");
             Email_label.setFont(Font.font("System",FontWeight.BOLD,20));
             return;
         }
-        if(Email_label.getTextFill()==Color.GREEN
-                ||Password_label.getTextFill()==Color.GREEN
-                ||Fname_label.getTextFill()==Color.GREEN
-                ||Lname_label.getTextFill()==Color.GREEN
-                ||Age_label.getTextFill()==Color.GREEN
-                ||!(deliveryAddress.getText().isEmpty())
-                ||!(address.getText().isEmpty())
-                ||Phone_label.getTextFill()==Color.GREEN){
+        if(!(Email_label.getTextFill()==Color.DARKORANGE)
+                &&Password_label.getTextFill()==Color.GREEN
+                &&Fname_label.getTextFill()==Color.GREEN
+                &&Lname_label.getTextFill()==Color.GREEN
+                &&Age_label.getTextFill()==Color.GREEN
+                &&!(deliveryAddress.getText().isEmpty())
+                &&!(address.getText().isEmpty())
+                &&Phone_label.getTextFill()==Color.GREEN){
             Customer customer = new Customer();
             customer.setFname(firstName.getText());
             customer.setLname(lastName.getText());
