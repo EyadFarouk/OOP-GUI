@@ -72,14 +72,8 @@ public class deliveryInterfaceController {
         OrderStatus.setText("Order status: "+orders.getFirst().getOrderState());
         OrderLocation.setText("Order location: "+orders.getFirst().getOrderLocation());
         OrderPrice.setText("Order price: "+orders.getFirst().getOrderPrice());
-        OrderButton.setDisable(true);
-        OrderRectangle.setDisable(true);
-        Orderer.setDisable(true);
-        OrderButton.setOpacity(0.0);
-        OrderRectangle.setOpacity(0.0);
-        Orderer.setOpacity(0.0);
+        disappearOrder();
         disappearStatus();
-
     }
 
     public void switchSceneToWelcome(ActionEvent event) throws IOException {

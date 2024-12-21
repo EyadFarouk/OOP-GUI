@@ -84,7 +84,7 @@ public class CustomerLoginController{
     }
 
     public void initialize() {
-        Email.setText("EyAd@gMaiL.com");
-        Password.setText("Hello@test123");
+        Email.setText("talaat@emaiL.com");
+        Password.setText("password7");
     }
 }

@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import Project.Orders.AllOrders;
 import Project.Orders.Order;
 import Project.Orders.OrderState;
 import javafx.event.ActionEvent;
@@ -17,10 +18,10 @@ public class CardDoneController {
     private Parent root;
 
     public void switchToInterface(ActionEvent event) throws IOException {
-        Order order=new Order(Info.customer.getDeliveryAddress(), OrderState.Preparing);
+        Order order=new Order(Info.customer.getDeliveryAddress(), OrderState.Preparing,Info.customer.getEmail());
         order.setTotalPrice(CustomerChoseRestaurantController.totalPrice);
         Info.orders.add(order);
-        Info.cancel=true;
+        AllOrders.orderList.add(order);
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerInterface.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();

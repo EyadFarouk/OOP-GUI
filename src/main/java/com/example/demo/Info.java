@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import Project.Orders.AllOrders;
 import Project.Orders.Order;
 import Project.Payment.Card;
 import Project.Person.Admin;
@@ -15,14 +16,18 @@ class Info {
     static Customer customer;
     static Restaurant restaurant;
     static Delivery_Staff delivery_Staff;
-    static boolean cancel=false;
 
     static List<Restaurant> restaurants;
     static List<Review>reviewsRestaurant;
     static List<Order> orders;
     static List<Restaurant> restaurantsLocation;
+    static List<AllOrders> allOrders;
+    static List<Order> myOrders;
 
     public static void loadData(){
+        AllOrders allOrders=new AllOrders();
+        allOrders.loadData();
+
         Restaurant restaurant = new Restaurant();
         restaurants = restaurant.loadData();
 
@@ -68,5 +73,8 @@ class Info {
 
         Order order1=new Order();
         order1.saveData(orders);
+
+        AllOrders allOrders=new AllOrders();
+        allOrders.saveData();
     }
 }

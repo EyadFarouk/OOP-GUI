@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import Project.Orders.Order;
 import Project.Person.Customer;
 import Project.Resturants.Restaurant;
 import Project.Resturants.Review;
@@ -12,11 +13,15 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 import java.util.List;
 
 import static com.example.demo.Info.*;
@@ -97,19 +102,6 @@ public class CustomerInterfaceController{
         Contact.setText("Contact information: "+restaurants.getFirst().contactInformation);
         locationDisappear();
         reviewDisappear();
-        if(cancel){
-            CancelOrder.setDisable(false);
-            CancelOrder.setOpacity(1.0);
-        }else{
-            CancelOrder.setDisable(true);
-            CancelOrder.setOpacity(0.0);
-        }
-    }
-
-    public void CancelOrder(){
-        orders.removeLast();
-        CancelOrder.setDisable(true);
-        CancelOrder.setOpacity(0.0);
     }
 
     public void chooseRestaurant(ActionEvent event) throws IOException {
@@ -213,28 +205,58 @@ public class CustomerInterfaceController{
         Locationer.setOpacity(0.0);
     }
 
-    public void setReview(){
-        if(Double.parseDouble(Reviewer.getText())>5.0||Double.parseDouble(Reviewer.getText())<0.0){
-            ReviewLabel.setDisable(false);
-            ReviewLabel.setOpacity(1.0);
-        }else{
-            Review review=new Review(restaurants.get(number));
-            for (Review value : reviewsRestaurant) {
-                if (value.restaurant.name.equals(restaurants.get(number).name)) {
-                    review.number_of_reviewsR++;
-                }
-            }
+    public boolean checkNumbers(){
+        if(Reviewer.getText().matches("^[0-9]*$")){
             ReviewLabel.setDisable(true);
             ReviewLabel.setOpacity(0.0);
-            review.setReviewForRestaurant(Double.parseDouble(Reviewer.getText()));
-            reviewsRestaurant.add(review);
-            Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
-            ReviewButton.setDisable(true);
-            ReviewRectangle.setDisable(true);
-            Reviewer.setDisable(true);
-            ReviewButton.setOpacity(0.0);
-            ReviewRectangle.setOpacity(0.0);
-            Reviewer.setOpacity(0.0);
+            return true;
+        }else{
+            ReviewLabel.setTextFill(Color.RED);
+            ReviewLabel.setText("The review cannot contain non-numeric values");
+            ReviewLabel.setFont(Font.font("System",FontWeight.BOLD,19));
+            ReviewLabel.setDisable(false);
+            ReviewLabel.setOpacity(1.0);
+            return false;
+        }
+    }
+
+    public void order(ActionEvent event) throws IOException {
+        myOrders=orders.stream()
+                .filter(order -> customer.getEmail().equalsIgnoreCase(order.getEmailUser()))
+                .toList();
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("order.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+
+    public void setReview(){
+        if(checkNumbers()){
+            if(Double.parseDouble(Reviewer.getText())>5.0||Double.parseDouble(Reviewer.getText())<0.0){
+                ReviewLabel.setText("Choose number between 0 and 5");
+                ReviewLabel.setDisable(false);
+                ReviewLabel.setOpacity(1.0);
+            }else{
+                Review review=new Review(restaurants.get(number));
+                for (Review value : reviewsRestaurant) {
+                    if (value.restaurant.name.equals(restaurants.get(number).name)) {
+                        review.number_of_reviewsR++;
+                    }
+                }
+                ReviewLabel.setDisable(true);
+                ReviewLabel.setOpacity(0.0);
+                review.setReviewForRestaurant(Double.parseDouble(Reviewer.getText()));
+                reviewsRestaurant.add(review);
+                Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
+                ReviewButton.setDisable(true);
+                ReviewRectangle.setDisable(true);
+                Reviewer.setDisable(true);
+                ReviewButton.setOpacity(0.0);
+                ReviewRectangle.setOpacity(0.0);
+                Reviewer.setOpacity(0.0);
+            }
         }
     }
 }

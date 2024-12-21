@@ -94,13 +94,6 @@ public class CustomerSearchLocationController {
         Contact.setText("Contact information: "+restaurantsLocation.getFirst().contactInformation);
         locationDisappear();
         reviewDisappear();
-        if(cancel){
-            CancelOrder.setDisable(false);
-            CancelOrder.setOpacity(1.0);
-        }else{
-            CancelOrder.setDisable(true);
-            CancelOrder.setOpacity(0.0);
-        }
     }
 
     public void CancelOrder(){

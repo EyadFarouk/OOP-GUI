@@ -14,10 +14,6 @@ public class SceneChanger {
     private Stage stage;
     private Parent root;
 
-    public void initialize(){
-        Info.cancel=false;
-    }
-
     public void switchSceneToAdminLogin(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginAsAdmin.fxml"));
         root = fxmlLoader.load();

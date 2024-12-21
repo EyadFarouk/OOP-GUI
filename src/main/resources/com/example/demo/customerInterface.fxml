@@ -102,7 +102,7 @@
          </cursor>
       </Button>
       <Rectangle fx:id="ReviewRectangle" arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="210.0" layoutX="-2.0" layoutY="243.0" stroke="BLACK" strokeType="INSIDE" width="310.0" />
-      <TextField fx:id="Reviewer" layoutX="65.0" layoutY="318.0" promptText="Enter the review">
+      <TextField fx:id="Reviewer" layoutX="65.0" layoutY="318.0" onInputMethodTextChanged="#checkNumbers" onKeyReleased="#checkNumbers" promptText="Enter the review">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
@@ -114,7 +114,7 @@
             <Cursor fx:constant="HAND" />
          </cursor>
       </Button>
-      <Button fx:id="CancelOrder" alignment="CENTER" layoutY="525.0" mnemonicParsing="false" onAction="#CancelOrder" prefHeight="49.0" prefWidth="202.0" text="Cancel last order" textFill="RED">
+      <Button fx:id="CancelOrder" alignment="CENTER" layoutX="103.0" layoutY="525.0" mnemonicParsing="false" onAction="#order" prefHeight="49.0" prefWidth="95.0" text="Orders">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>

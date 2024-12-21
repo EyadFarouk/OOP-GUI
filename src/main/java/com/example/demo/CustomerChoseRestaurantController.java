@@ -24,7 +24,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.example.demo.Info.cancel;
 import static com.example.demo.Info.orders;
 
 public class CustomerChoseRestaurantController {
@@ -95,13 +94,6 @@ public class CustomerChoseRestaurantController {
         OrderRectangle.setOpacity(0.0);
         Orderer.setOpacity(0.0);
         Order.setOpacity(0.0);
-        if(cancel){
-            CancelOrder.setDisable(false);
-            CancelOrder.setOpacity(1.0);
-        }else{
-            CancelOrder.setDisable(true);
-            CancelOrder.setOpacity(0.0);
-        }
     }
 
     public void CancelOrder(){
