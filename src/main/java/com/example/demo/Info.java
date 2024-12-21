@@ -23,7 +23,6 @@ class Info {
     static List<Restaurant> restaurantsLocation;
     static List<AllOrders> allOrders;
     static List<Order> myOrders;
-    static List<Card> cards;
 
     public static void loadData(){
         AllOrders allOrders=new AllOrders();
