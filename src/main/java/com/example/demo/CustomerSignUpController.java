@@ -279,10 +279,10 @@ public class CustomerSignUpController implements Initializable {
             Customer customer = new Customer();
             customer.setFname(firstName.getText());
             customer.setLname(lastName.getText());
-            customer.setEmail(email.getText());
+            customer.setEmail(email.getText().toLowerCase());
             customer.setPhone(phone.getText());
             customer.setAge(Integer.parseInt(age.getText()));
-            customer.setAddress(address.getText());
+            customer.setAddress(address.getText().toLowerCase());
             customer.setDeliveryAddress(deliveryAddress.getText());
             customer.setPassword(password.getText());
             customer.setGender(gender.getValue());

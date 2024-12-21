@@ -19,6 +19,7 @@ class Info {
     static List<Restaurant> restaurants;
     static List<Review>reviewsRestaurant;
     static List<Order> orders;
+    static List<Restaurant> restaurantsLocation;
 
     public static void loadData(){
         Restaurant restaurant = new Restaurant();

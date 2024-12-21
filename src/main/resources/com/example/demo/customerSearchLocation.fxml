@@ -10,7 +10,7 @@
 <?import javafx.scene.shape.Rectangle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CustomerInterfaceController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="850.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo.CustomerSearchLocationController">
    <children>
       <ImageView fitHeight="584.0" fitWidth="907.0" layoutX="-54.0" layoutY="12.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -105,7 +105,8 @@
       <TextField fx:id="Reviewer" layoutX="65.0" layoutY="318.0" promptText="Enter the review">
          <cursor>
             <Cursor fx:constant="TEXT" />
-         </cursor></TextField>
+         </cursor>
+      </TextField>
       <Button fx:id="ReviewButton" alignment="CENTER" layoutX="87.0" layoutY="381.0" mnemonicParsing="false" onAction="#setReview" prefHeight="40.0" prefWidth="126.0" text="Submit">
          <font>
             <Font name="System Bold" size="21.0" />
@@ -136,7 +137,7 @@
             <Cursor fx:constant="TEXT" />
          </cursor>
       </TextField>
-      <Button fx:id="LocationButton" alignment="CENTER" layoutX="87.0" layoutY="383.0" mnemonicParsing="false" onAction="#setSearch" prefHeight="40.0" prefWidth="126.0" text="Submit">
+      <Button fx:id="LocationButton" alignment="CENTER" layoutX="87.0" layoutY="383.0" mnemonicParsing="false" onAction="#setReview" prefHeight="40.0" prefWidth="126.0" text="Submit">
          <font>
             <Font name="System Bold" size="21.0" />
          </font>

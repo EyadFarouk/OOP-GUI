@@ -89,7 +89,7 @@ public class CustomerLoginController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        Email.setText("eyad@gmail.com");
+        Email.setText("EyAd@gMaiL.com");
         Password.setText("Hello@test123");
     }
 }

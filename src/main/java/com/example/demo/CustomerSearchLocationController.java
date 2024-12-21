@@ -1,6 +1,5 @@
 package com.example.demo;
 
-import Project.Person.Customer;
 import Project.Resturants.Restaurant;
 import Project.Resturants.Review;
 import javafx.event.ActionEvent;
@@ -20,8 +19,9 @@ import java.net.URISyntaxException;
 import java.util.List;
 
 import static com.example.demo.Info.*;
+import static com.example.demo.Info.restaurants;
 
-public class CustomerInterfaceController{
+public class CustomerSearchLocationController {
     private Scene scene;
     private Stage stage;
     private Parent root;
@@ -88,10 +88,10 @@ public class CustomerInterfaceController{
 
     public void initialize() {
         CustomerName.setText(Info.customer.getFname()+" "+ Info.customer.getLname());
-        Name.setText("Restaurant name: "+restaurants.getFirst().name);
-        Address.setText("Address: "+restaurants.getFirst().address);
-        Rating.setText("Rating of the restaurant: "+restaurants.getFirst().rating);
-        Contact.setText("Contact information: "+restaurants.getFirst().contactInformation);
+        Name.setText("Restaurant name: "+restaurantsLocation.getFirst().name);
+        Address.setText("Address: "+restaurantsLocation.getFirst().address);
+        Rating.setText("Rating of the restaurant: "+restaurantsLocation.getFirst().rating);
+        Contact.setText("Contact information: "+restaurantsLocation.getFirst().contactInformation);
         locationDisappear();
         reviewDisappear();
         if(cancel){
@@ -110,35 +110,35 @@ public class CustomerInterfaceController{
     }
 
     public void chooseRestaurant(ActionEvent event) throws IOException {
-        Info.restaurant=restaurants.get(number);
+        Info.restaurant=restaurantsLocation.get(number);
         switchToCustomerChoseRestaurant(event);
     }
 
     public void Previous(){
         if(number==0)
-            number=restaurants.size()-1;
+            number=restaurantsLocation.size()-1;
         else
             number--;
-        Name.setText("Restaurant name: "+restaurants.get(number).name);
-        Address.setText("Address: "+restaurants.get(number).address);
-        Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
-        Contact.setText("Contact information: "+restaurants.get(number).contactInformation);
+        Name.setText("Restaurant name: "+restaurantsLocation.get(number).name);
+        Address.setText("Address: "+restaurantsLocation.get(number).address);
+        Rating.setText("Rating of the restaurant: "+restaurantsLocation.get(number).rating);
+        Contact.setText("Contact information: "+restaurantsLocation.get(number).contactInformation);
     }
 
     public void Next(){
-        if(number==restaurants.size()-1)
+        if(number==restaurantsLocation.size()-1)
             number=0;
         else
             number++;
-        Name.setText("Restaurant name: "+restaurants.get(number).name);
-        Address.setText("Address: "+restaurants.get(number).address);
-        Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
-        Contact.setText("Contact information: "+restaurants.get(number).contactInformation);
+        Name.setText("Restaurant name: "+restaurantsLocation.get(number).name);
+        Address.setText("Address: "+restaurantsLocation.get(number).address);
+        Rating.setText("Rating of the restaurant: "+restaurantsLocation.get(number).rating);
+        Contact.setText("Contact information: "+restaurantsLocation.get(number).contactInformation);
     }
 
     public void getLocation() throws URISyntaxException, IOException {
-        System.out.println(restaurants.get(number).name);
-        restaurants.get(number).getLocation();
+        System.out.println(restaurantsLocation.get(number).name);
+        restaurantsLocation.get(number).getLocation();
     }
 
     public void review(){
@@ -169,20 +169,15 @@ public class CustomerInterfaceController{
         }else{locationDisappear();}
     }
 
-    public void setSearch(ActionEvent event) throws IOException {
+    public void setSearch(){
         System.out.println("Please enter the address you want to search in : ");
-        restaurantsLocation=restaurants
+        List<Restaurant> restaurantList=restaurantsLocation
                 .stream()
-                .filter(restaurant1 -> restaurant1.address.equalsIgnoreCase(Locationer.getText()))
+                .filter(restaurant1 -> restaurant1.address.equals(Locationer.getText()))
                 .toList();
-        if(!restaurantsLocation.isEmpty()){
+        if(!restaurantList.isEmpty()){
             LocationLabel.setOpacity(0.0);
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerSearchLocation.fxml"));
-            root = fxmlLoader.load();
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+
         }else{
             LocationLabel.setOpacity(1.0);
         }
@@ -209,15 +204,15 @@ public class CustomerInterfaceController{
     }
 
     public void setReview(){
-        Review review=new Review(restaurants.get(number));
+        Review review=new Review(restaurantsLocation.get(number));
         for (Review value : reviewsRestaurant) {
-            if (value.restaurant.name.equals(restaurants.get(number).name)) {
+            if (value.restaurant.name.equals(restaurantsLocation.get(number).name)) {
                 review.number_of_reviewsR++;
             }
         }
         review.setReviewForRestaurant(Double.parseDouble(Reviewer.getText()));
         reviewsRestaurant.add(review);
-        Rating.setText("Rating of the restaurant: "+restaurants.get(number).rating);
+        Rating.setText("Rating of the restaurant: "+restaurantsLocation.get(number).rating);
         ReviewButton.setDisable(true);
         ReviewRectangle.setDisable(true);
         Reviewer.setDisable(true);
