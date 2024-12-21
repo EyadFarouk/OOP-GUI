@@ -113,7 +113,7 @@ public class AddMenu {
         resetDishInputs();
         currentDishIndex++;
 
-        currentDishIndexLabel.setText("#" + currentDishIndex + 1);
+        currentDishIndexLabel.setText("#" + (currentDishIndex + 1));
 
         // Check if all dishes have been added
         if (currentDishIndex >= numberOfItems) {

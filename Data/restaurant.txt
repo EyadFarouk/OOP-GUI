@@ -13,6 +13,16 @@ rise with chicken
 75.0
 chicken
 4.0
+e
+e
+1.0
+e
+1.0
+e
+e
+1.0
+e
+1.0
 
 gad
 Elraml Station

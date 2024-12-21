@@ -40,7 +40,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button fx:id="addMenu" mnemonicParsing="false" prefHeight="33.0" prefWidth="300.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Menu" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+            <Button fx:id="addMenu" mnemonicParsing="false" onAction="#addMenu" prefHeight="33.0" prefWidth="300.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Menu" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
