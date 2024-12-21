@@ -24,7 +24,7 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button fx:id="addDeliveryStaff" mnemonicParsing="false" prefHeight="33.0" prefWidth="323.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Delivery Staff" GridPane.columnIndex="1" GridPane.rowIndex="1">
+            <Button fx:id="addDeliveryStaff" mnemonicParsing="false" onAction="#AddDeliveryStaffScene" prefHeight="33.0" prefWidth="323.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Delivery Staff" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>

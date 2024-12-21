@@ -1,30 +1,29 @@
 package com.example.demo;
 
-import Project.Person.Customer;
+import Project.Person.Delivery_Staff;
+import Project.Resturants.Restaurant;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 import javafx.scene.text.FontWeight;
 import javafx.stage.Stage;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
-import static Project.Person.Customer.userList;
+import static Project.Person.Delivery_Staff.staffList;
 
-public class CustomerSignUpController{
+public class AddDeliveryStaff {
 
     private Scene scene;
     private Stage stage;
@@ -49,7 +48,8 @@ public class CustomerSignUpController{
     private TextField address;
 
     @FXML
-    private TextField deliveryAddress;
+    private ChoiceBox<String> Location;
+    private List<String> locationList = new ArrayList<>();
 
     @FXML
     private PasswordField password;
@@ -107,7 +107,7 @@ public class CustomerSignUpController{
         if (Name.getText().isEmpty()) {
             label.setTextFill(Color.DARKORANGE);
             label.setText("The name cannot be empty");
-            label.setFont(Font.font("System",FontWeight.BOLD,20));
+            label.setFont(Font.font("System", FontWeight.BOLD,20));
         }else{
             label.setTextFill(Color.GREEN);
             label.setText("Nice name you got there UwU");
@@ -129,21 +129,21 @@ public class CustomerSignUpController{
     }
 
     public void checkEmailEmpty(){
-     if (email.getText().isEmpty()) {
-         Email_label.setTextFill(Color.DARKORANGE);
-         Email_label.setText("The email cannot be empty");
-         Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
-     }else{
-         if(email.getText().endsWith("@gmail.com")||email.getText().endsWith("@yahoo.com")||email.getText().endsWith("@outlook.com")||email.getText().endsWith("@email.com")){
-             Email_label.setText("");
-             Email_label.setTextFill(Color.GREEN);
-         }
-         else {
-             Email_label.setTextFill(Color.DARKORANGE);
-             Email_label.setText("The email in invalid");
-             Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
-         }
-     }
+        if (email.getText().isEmpty()) {
+            Email_label.setTextFill(Color.DARKORANGE);
+            Email_label.setText("The email cannot be empty");
+            Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
+        }else{
+            if(email.getText().endsWith("@gmail.com")||email.getText().endsWith("@yahoo.com")||email.getText().endsWith("@outlook.com")||email.getText().endsWith("@email.com")){
+                Email_label.setText("");
+                Email_label.setTextFill(Color.GREEN);
+            }
+            else {
+                Email_label.setTextFill(Color.DARKORANGE);
+                Email_label.setText("The email in invalid");
+                Email_label.setFont(Font.font("System",FontWeight.BOLD,23));
+            }
+        }
     }
 
     public void checkPhoneEmpty(){
@@ -254,12 +254,12 @@ public class CustomerSignUpController{
 
     private boolean checkEmailUnique(){
         boolean exists=false;
-        for (Customer customer : userList) {
-            if (email.getText().equalsIgnoreCase(customer.getEmail())) {
+        for (Delivery_Staff deliverystaff : staffList) {
+            if (email.getText().equalsIgnoreCase(deliverystaff.getEmail())) {
                 return false;
             }
         }
-            return true;
+        return true;
     }
 
     public void validateInputAndSignUp(ActionEvent event) throws IOException {
@@ -274,22 +274,21 @@ public class CustomerSignUpController{
                 &&Fname_label.getTextFill()==Color.GREEN
                 &&Lname_label.getTextFill()==Color.GREEN
                 &&Age_label.getTextFill()==Color.GREEN
-                &&!(deliveryAddress.getText().isEmpty())
+                &&!(Location.getValue().equals("Choose the work location"))
                 &&!(address.getText().isEmpty())
                 &&Phone_label.getTextFill()==Color.GREEN){
-            Customer customer = new Customer();
-            customer.setFname(firstName.getText());
-            customer.setLname(lastName.getText());
-            customer.setEmail(email.getText().toLowerCase());
-            customer.setPhone(phone.getText());
-            customer.setAge(Integer.parseInt(age.getText()));
-            customer.setAddress(address.getText().toLowerCase());
-            customer.setDeliveryAddress(deliveryAddress.getText());
-            customer.setPassword(password.getText());
-            customer.setGender(gender.getValue());
-            userList.add(customer);
-            userList.getLast().displayUserInfo();
-            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("loginAsCustomer.fxml"));
+            Delivery_Staff deliverystaff = new Delivery_Staff(Location.getValue());
+            deliverystaff.setFname(firstName.getText());
+            deliverystaff.setLname(lastName.getText());
+            deliverystaff.setEmail(email.getText().toLowerCase());
+            deliverystaff.setPhone(phone.getText());
+            deliverystaff.setAge(Integer.parseInt(age.getText()));
+            deliverystaff.setAddress(address.getText().toLowerCase());
+            deliverystaff.setPassword(password.getText());
+            deliverystaff.setGender(gender.getValue());
+            staffList.add(deliverystaff);
+            staffList.getLast().displayUserInfo();
+            FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homePageAdmin.fxml"));
             root = fxmlLoader.load();
             stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
             scene = new Scene(root);
@@ -297,8 +296,8 @@ public class CustomerSignUpController{
             stage.show();
         }
     }
-    public void switchSceneToCustomerLoginOrSignUp(ActionEvent event) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerLoginOrSignUp.fxml"));
+    public void switchSceneHomePage(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homePageAdmin.fxml"));
         root = fxmlLoader.load();
         stage = (Stage) ((Node)event.getSource()).getScene().getWindow();
         scene = new Scene(root);
@@ -309,5 +308,10 @@ public class CustomerSignUpController{
     public void initialize() {
         gender.getItems().addAll(genders);
         gender.setValue("Male");
+        for (int i = 0; i < Info.restaurants.size(); i++) {
+            locationList.add(Info.restaurants.get(i).name);
+        }
+        Location.getItems().addAll(locationList);
+        Location.setValue("Choose the work location");
     }
 }
