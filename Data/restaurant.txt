@@ -30,3 +30,14 @@ bread with vegatbles
 breads
 3.0
 
+pizza hat
+down town
+19421
+4.0
+https://www.google.com/maps/search/pizza+hut/@30.2185449,31.2443203,11z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D
+pizza
+bread with meat
+80.0
+bread
+4.5
+
