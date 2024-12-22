@@ -33,9 +33,9 @@ public class AddRestaurant {
     @FXML
     private TextField URLLocation;
     @FXML
-    private TextField menuItems;
-    @FXML
     private Button addButton;
+    @FXML
+    private Button addMenuButton;
 
     @FXML
     public void initialize() {
@@ -59,25 +59,6 @@ public class AddRestaurant {
         restaurant.contactInformation = contactInfo.getText();
         restaurant.rating = Double.parseDouble(restaurantRating.getText());
         restaurant.uri = URLLocation.getText();
-
-        // Get menu items from the last input field
-        String menuItemsText = menuItems.getText();
-        String[] menuItems = menuItemsText.split(",");
-
-        // Check if the number of menu items is less than 100
-        if (menuItems.length > 100) {
-            showAlert("Input Error", "The number of menu items must be less than 100.");
-            return;
-        }
-
-        // Create a list to hold Dish objects
-        List<Dish> menu = new ArrayList<>();
-        for (String item : menuItems) {
-            Dish dish = new Dish();
-            dish.name = item.trim(); // Trim whitespace
-            menu.add(dish);
-        }
-        restaurant.menu = menu;
 
         // Add the restaurant to the list
         restaurants.add(restaurant);
@@ -114,14 +95,6 @@ public class AddRestaurant {
             return false;
         }
 
-        // Validate menu items
-        String menuItemsText = menuItems.getText();
-        String[] menuItems = menuItemsText.split(",");
-        if (menuItems.length > 100) {
-            showAlert("Input Error", "The number of menu items must be less than 100.");
-            return false;
-        }
-
         return true; // All inputs are valid
     }
 
@@ -141,6 +114,14 @@ public class AddRestaurant {
     }
     public void switchSceneToadmin(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("homePageAdmin.fxml"));
+        Parent root = fxmlLoader.load();
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
+    public void AddMenuScene(ActionEvent event) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenu.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         Scene scene = new Scene(root);

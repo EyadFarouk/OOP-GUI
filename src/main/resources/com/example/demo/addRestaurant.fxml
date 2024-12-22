@@ -36,9 +36,21 @@
                </children>
             </GridPane>
             <TextField fx:id="URLLocation" maxWidth="400.0" promptText="URL Location" styleClass="textField" />
-            <TextField fx:id="menuItems" maxWidth="400.0" promptText="Menu items, separate the items with &quot;,&quot; (0-100)" style="-fx-margin: 20;" styleClass="textField" />
-            <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleSubmit" styleClass="submitButton" stylesheets="@../../../CSS/homePageAdmin.css" text="Add" />
-            <Button fx:id="back" mnemonicParsing="false" onAction="#switchSceneToadmin" styleClass="submitButton" stylesheets="@../../../CSS/homePageAdmin.css" text="go back" />
+            <GridPane prefWidth="600.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="232.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="198.4000244140625" minWidth="10.0" prefWidth="111.19999999999999" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="260.0" minWidth="10.0" prefWidth="260.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Button fx:id="addButton" mnemonicParsing="false" onAction="#handleSubmit" styleClass="submitButton" stylesheets="@../../../CSS/homePageAdmin.css" text="Add" GridPane.halignment="RIGHT" />
+                  <Button fx:id="back" mnemonicParsing="false" onAction="#switchSceneToadmin" styleClass="submitButton" stylesheets="@../../../CSS/homePageAdmin.css" text="go back" GridPane.columnIndex="1" GridPane.halignment="CENTER" />
+                  <Button fx:id="addMenuButton" mnemonicParsing="false" onAction="#AddMenuScene" styleClass="submitButton" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Menu" GridPane.columnIndex="2" />
+               </children>
+            </GridPane>
          </children>
       </VBox>
    </children>
