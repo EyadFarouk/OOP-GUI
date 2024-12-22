@@ -22,6 +22,7 @@
             <TextField fx:id="restaurantNameField" maxWidth="300.0" promptText="Restaurant name" styleClass="textField" stylesheets="@../../../CSS/homePageAdmin.css" />
             <TextField fx:id="numberOfItemsField" maxWidth="300.0" promptText="Number of items (1-100)" styleClass="textField" stylesheets="@../../../CSS/homePageAdmin.css" />
             <Button fx:id="nextButton" mnemonicParsing="false" onAction="#handleAddMenuButtonAction" stylesheets="@../../../CSS/homePageAdmin.css" text="Next" />
+            <Button mnemonicParsing="false" onAction="#HomePageAdminScene" stylesheets="@../../../CSS/homePageAdmin.css" text="Back" />
          </children>
       </VBox>
       <VBox fx:id="addDishVBox" layoutY="64.0" prefHeight="271.0" prefWidth="600.0" spacing="12.0" styleClass="cont" stylesheets="@../../../CSS/homePageAdmin.css" visible="false" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">

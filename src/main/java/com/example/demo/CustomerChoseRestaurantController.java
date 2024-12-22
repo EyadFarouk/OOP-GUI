@@ -96,12 +96,6 @@ public class CustomerChoseRestaurantController {
         Order.setOpacity(0.0);
     }
 
-    public void CancelOrder(){
-        orders.removeLast();
-        CancelOrder.setDisable(true);
-        CancelOrder.setOpacity(0.0);
-    }
-
     public void Previous(){
         if(number==0)
             number=dishList.size()-1;

@@ -44,7 +44,7 @@ public class AddRestaurant {
     }
 
     @FXML
-    private void handleSubmit() {
+    private void handleSubmit(ActionEvent event) throws IOException {
         // Validate all input fields
         if (!validateAllInputs()) {
             return; // If any input is invalid, stop processing
@@ -81,6 +81,7 @@ public class AddRestaurant {
 
         // Add the restaurant to the list
         restaurants.add(restaurant);
+        switchSceneToadmin(event);
     }
 
     private boolean validateAllInputs() {

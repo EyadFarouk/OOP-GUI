@@ -20,6 +20,10 @@ import static com.example.demo.Info.restaurants;
 
 
 public class AddMenu {
+    private Scene scene;
+    private Stage stage;
+    private Parent root;
+
     private int numberOfItems;
     private int currentDishIndex = 0;
     private int restaurantIdx = -1;
@@ -121,10 +125,6 @@ public class AddMenu {
         }
     }
 
-
-    private Scene scene;
-    private Stage stage;
-    private Parent root;
     public void HomePageAdminScene(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("homePageAdmin.fxml"));
         root = fxmlLoader.load();

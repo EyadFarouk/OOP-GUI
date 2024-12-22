@@ -79,7 +79,7 @@ public class AdminLoginController {
     }
 
     public void initialize() {
-        Email.setText("EyAdAdMiN@gMaiL.com");
+        Email.setText("eyadadmin@gmaiL.com");
         Password.setText("Hello@test123");
     }
 }

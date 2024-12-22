@@ -56,7 +56,7 @@
             <Image url="@../../../imgs/unknown.png" />
          </image>
       </ImageView>
-      <Label fx:id="CustomerName" alignment="CENTER" layoutX="54.0" layoutY="199.0" prefHeight="49.0" prefWidth="193.0" text="Name" textAlignment="CENTER" wrapText="true">
+      <Label fx:id="CustomerName" alignment="CENTER" layoutX="-5.0" layoutY="199.0" prefHeight="49.0" prefWidth="310.0" text="Name" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="25.0" />
          </font>

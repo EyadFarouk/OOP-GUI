@@ -33,15 +33,15 @@
             <Font size="15.0" />
          </font>
       </Button>
-      <Label fx:id="cardcheck" layoutX="87.0" layoutY="86.0" text="card" />
-      <Label fx:id="cvvcheck" layoutX="294.0" layoutY="86.0" text="cvv" />
-      <Label fx:id="expcheck" layoutX="490.0" layoutY="86.0" text="expDate" />
+      <Label fx:id="cardcheck" alignment="CENTER" layoutX="37.0" layoutY="86.0" prefHeight="16.0" prefWidth="171.0" text="card" />
+      <Label fx:id="cvvcheck" alignment="CENTER" layoutX="240.0" layoutY="86.0" prefHeight="16.0" prefWidth="171.0" text="cvv" />
+      <Label fx:id="expcheck" alignment="TOP_CENTER" layoutX="434.0" layoutY="86.0" prefHeight="49.0" prefWidth="171.0" text="expDate" wrapText="true" />
       <Button fx:id="selectOrRemove" layoutX="656.0" layoutY="378.0" mnemonicParsing="false" onAction="#Cardremoveorselect" text="select or remove card">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <TextField fx:id="addMoneyField" layoutX="657.0" layoutY="56.0" promptText="enter money available " />
-      <Label fx:id="moneycheck" layoutX="695.0" layoutY="86.0" text="available money" />
+      <Label fx:id="moneycheck" alignment="CENTER" layoutX="658.0" layoutY="86.0" prefHeight="16.0" prefWidth="171.0" text="available money" />
    </children>
 </AnchorPane>
