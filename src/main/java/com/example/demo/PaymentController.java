@@ -32,6 +32,15 @@ public class PaymentController {
         stage.show();
     }
 
+    public void switchToCard(ActionEvent event) throws IOException {
+
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("cardPayment.fxml"));
+        root = fxmlLoader.load();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
     public void switchToCustomerChoseRestaurant(ActionEvent event) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("customerChoseRestaurant.fxml"));
         root = fxmlLoader.load();

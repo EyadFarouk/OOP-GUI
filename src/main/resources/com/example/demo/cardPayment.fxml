@@ -20,14 +20,14 @@
             <Font name="HP Simplified Hans Regular" size="20.0" />
          </font>
       </Label>
-      <Button fx:id="goback4" layoutX="695.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchTopayment" text="go back">
+      <Button fx:id="goback4" layoutX="695.0" layoutY="329.0" mnemonicParsing="false" onAction="#switchToInterface" text="go back">
          <font>
             <Font size="15.0" />
          </font>
       </Button>
       <TextField fx:id="cardnum" layoutX="36.0" layoutY="56.0" promptText="enter your card number" />
       <TextField fx:id="cvv" layoutX="237.0" layoutY="56.0" promptText="enter your card Cvv" />
-      <TextField fx:id="expirationDate" layoutX="437.0" layoutY="56.0" promptText="enter exp date MM/YY" />
+      <TextField fx:id="expirationDate" layoutX="437.0" layoutY="56.0" promptText="enter exp date YY/MM" />
       <Button fx:id="submitButton" layoutX="363.0" layoutY="189.0" mnemonicParsing="false" onAction="#submit" text="submit">
          <font>
             <Font size="15.0" />

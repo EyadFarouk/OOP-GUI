@@ -17,7 +17,7 @@
             <Image url="@../../../imgs/pay.jpg" />
          </image>
       </ImageView>
-      <Button layoutX="185.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchtoPayment" text="pay with card">
+      <Button layoutX="185.0" layoutY="160.0" mnemonicParsing="false" onAction="#switchToCard" text="pay with card">
          <font>
             <Font size="15.0" />
          </font>
