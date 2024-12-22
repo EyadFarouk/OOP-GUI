@@ -15,7 +15,7 @@ public class Order implements checkNumberValid {
     private String orderId;
     private Date orderDate;
     public   static List<Dish> foodItems=new ArrayList<>();
-    public static List<Integer>quantites=new ArrayList<Integer>();
+    public static List<Integer>quantites=new ArrayList<>();
     private double totalPrice;
     private String orderLocation;
    // state of the order (Pending, Completed, Canceled)
@@ -189,7 +189,7 @@ public class Order implements checkNumberValid {
                 line=bufferedReader.readLine();
                 order.orderState= OrderState.valueOf(line);
                 line=bufferedReader.readLine();
-                order.totalPrice=Double.valueOf(line);
+                order.totalPrice=Double.parseDouble(line);
                 orders.add(order);
                 order=new Order();
             }

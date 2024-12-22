@@ -41,7 +41,7 @@ public class AllOrders {
                   line=bufferedReader.readLine();
                   order.setOrderState(OrderState.valueOf(line));
                   line=bufferedReader.readLine();
-                  order.setTotalPrice(Double.valueOf(line));
+                  order.setTotalPrice(Double.parseDouble(line));
                   orderList1.add(order);
                }
                 AllOrders.orderList=orderList1;

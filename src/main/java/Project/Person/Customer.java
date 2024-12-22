@@ -15,18 +15,6 @@ public class Customer extends User implements saveAndLoad {
     String deliveryAddress;
     public static List<Customer> userList=new ArrayList<>();
 
-//    public Customer(String Fname,String Lname,String email,String phone,int age,String address,String deliveryAddress,String password,String gender) {
-//        this.Fname=Fname;
-//        this.Lname=Lname;
-//        this.email=email;
-//        this.phone=phone;
-//        this.age=age;
-//        this.address=address;
-//        this.deliveryAddress=deliveryAddress;
-//        this.password=password;
-//        this.gender=gender;
-//    }
-
     /**
      * This method is used to display the details of the user
      */
@@ -40,27 +28,6 @@ public class Customer extends User implements saveAndLoad {
      */
     public String getAddress(){
         return super.address;
-    }
-    public static void instance(){
-        Customer Eyad=new Customer();
-        Eyad.email="Eyad";
-        Eyad.password="Eyad";
-        userList.add(Eyad);
-        for (int i = 0; i < 10; i++) {
-            Customer customer=new Customer();
-            customer.Fname="Fname"+i;
-            customer.Lname="Lname"+i;
-            customer.email="email"+i+"@email.com";
-            customer.phone="phone"+i;
-            customer.age=1;
-            customer.gender="male";
-            customer.address="address"+i;
-            customer.password="password"+i;
-            customer.deliveryAddress="address"+i;
-            userList.add(customer);
-            customer.displayUserInfo();
-            userList.get(i).displayUserInfo();
-        }
     }
 
     /**
@@ -159,11 +126,9 @@ public class Customer extends User implements saveAndLoad {
         try {
             FileReader fr = new FileReader("Data/CustomerData.csv");
             BufferedReader br = new BufferedReader(fr);
-//            int i=0;
             br.readLine();
             String line;
             while((line = br.readLine()) != null) {
-//                System.out.println(line);
                 Customer customer= new Customer();
                 customer.Fname=line.split(",")[0];
                 customer.Lname=line.split(",")[1];
@@ -175,8 +140,6 @@ public class Customer extends User implements saveAndLoad {
                 customer.password=line.split(",")[7];
                 customer.deliveryAddress=line.split(",")[8];
                 userList.add(customer);
-//                System.out.println(userList.get(i).toString());
-//                i++;
             }
             fr.close();
         }catch (FileNotFoundException e) {

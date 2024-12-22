@@ -20,15 +20,11 @@
             <RowConstraints maxHeight="58.0" minHeight="10.0" prefHeight="44.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <Button fx:id="delMenu" mnemonicParsing="false" onAction="#deleteMenu" prefHeight="33.0" prefWidth="320.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Menu" GridPane.columnIndex="1" GridPane.halignment="LEFT">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font></Button>
-            <Button fx:id="addDeliveryStaff" mnemonicParsing="false" onAction="#AddDeliveryStaffScene" prefHeight="33.0" prefWidth="323.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Delivery Staff" GridPane.columnIndex="1" GridPane.rowIndex="1">
-               <font>
-                  <Font name="System Bold" size="18.0" />
-               </font></Button>
             <Button fx:id="addRestaurant" mnemonicParsing="false" onAction="#addRestaurantScene" prefHeight="33.0" prefWidth="300.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Restaurant" GridPane.halignment="RIGHT">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+            <Button fx:id="delMenu" mnemonicParsing="false" onAction="#deleteMenu" prefHeight="33.0" prefWidth="320.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete Menu" GridPane.columnIndex="1" GridPane.halignment="LEFT">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
@@ -36,11 +32,15 @@
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
-            <Button fx:id="logout" mnemonicParsing="false" onAction="#switchSceneToAdminLoginOrSignUp" prefHeight="33.0" prefWidth="323.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Log Out" GridPane.columnIndex="1" GridPane.rowIndex="2">
+            <Button fx:id="addDeliveryStaff" mnemonicParsing="false" onAction="#AddDeliveryStaffScene" prefHeight="33.0" prefWidth="323.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Delivery Staff" GridPane.columnIndex="1" GridPane.rowIndex="1">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>
             <Button fx:id="addMenu" mnemonicParsing="false" onAction="#addMenu" prefHeight="33.0" prefWidth="300.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Add Menu" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font></Button>
+            <Button fx:id="logout" mnemonicParsing="false" onAction="#switchSceneToAdminLoginOrSignUp" prefHeight="33.0" prefWidth="323.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Log Out" GridPane.columnIndex="1" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font></Button>

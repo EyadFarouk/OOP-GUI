@@ -32,7 +32,7 @@ public class Notification extends Thread{
         trayIcon.setImageAutoSize(true);//make pc select size
         trayIcon.setToolTip("");
         tray.add(trayIcon);//add tray icon to system tray
-        trayIcon.displayMessage("Hello "+name, "wow hurry a restaurant "+nameRestaurant+" make a nice discount", TrayIcon.MessageType.INFO);
+        trayIcon.displayMessage("Hello "+name, "Wow, check out "+nameRestaurant+". They have nice deals", TrayIcon.MessageType.INFO);
         //to make body of not and display
     }
 

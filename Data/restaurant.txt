@@ -3,15 +3,15 @@ cairo
 19601
 4.0
 https://www.google.com/maps/search/karam+el+sham/@30.1072111,31.3060899,12z/data=!3m1!4b1?entry=ttu&g_ep=EgoyMDI0MTIxMS4wIKXMDSoASAFQAw%3D%3D
-shorma
-bread with chicken
+Shawerma
+Bread with chicken
 50.0
-chicken
+Chicken
 4.5
-fata
-rise with chicken
+Fata
+Rice with chicken
 75.0
-chicken
+Chicken
 4.0
 
 gad
@@ -29,6 +29,11 @@ bread with vegatbles
 50.0
 breads
 3.0
+fries
+hdspi
+25.0
+potato
+4.0
 
 pizza hat
 down town

@@ -39,7 +39,7 @@ public class deliveryStaffLoginController {
         for (int i = 0; i < staffList.size(); i++) {
             if (email.equalsIgnoreCase(staffList.get(i).getEmail())) {
                 if (password.equals(staffList.get(i).getPassword())) {
-                    label.setText("Login successful, nigga");
+                    label.setText("Login successful");
                     label.setTextFill(Color.GREEN);
                     deliveryStaff = staffList.get(i);
                     Info.delivery_Staff = deliveryStaff;
@@ -71,10 +71,5 @@ public class deliveryStaffLoginController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void initialize() {
-        Email.setText("email1@email.com");
-        Password.setText("password1");
     }
 }

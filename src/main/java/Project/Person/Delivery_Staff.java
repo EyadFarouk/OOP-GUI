@@ -46,11 +46,6 @@ public class Delivery_Staff extends User implements saveAndLoad {
         this.rating = rating;
     }
 
-    public void setFname(String fname){
-        super.Fname=fname;
-    }
-    public String getFname(){return super.Fname;}
-
     /**
      * this method is used to save the data
      */
@@ -85,11 +80,9 @@ public class Delivery_Staff extends User implements saveAndLoad {
         try {
             FileReader fr = new FileReader("Data/DeliveryStaffData.csv");
             BufferedReader br = new BufferedReader(fr);
-//            int i=0;
             br.readLine();
             String line;
             while((line = br.readLine()) != null) {
-//                System.out.println(line);
                 Delivery_Staff deliveryStaff= new Delivery_Staff(line.split(",")[8]);
                 deliveryStaff.Fname=line.split(",")[0];
                 deliveryStaff.Lname=line.split(",")[1];
@@ -100,8 +93,6 @@ public class Delivery_Staff extends User implements saveAndLoad {
                 deliveryStaff.address=line.split(",")[6];
                 deliveryStaff.password=line.split(",")[7];
                 staffList.add(deliveryStaff);
-//                System.out.println(userList.get(i).toString());
-//                i++;
             }
             fr.close();
         }catch (FileNotFoundException e) {

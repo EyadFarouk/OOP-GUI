@@ -19,27 +19,6 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
     public static List<Restaurant>restaurants;
     public static List<Admin> adminList=new ArrayList<>();
 
-
-    static public void instance(){
-        Admin Eyad=new Admin();
-        Eyad.email="AEyad";
-        Eyad.password="AEyad";
-        adminList.add(Eyad);
-        for (int i = 0; i < 10; i++) {
-            Admin admin=new Admin();
-            admin.Fname="AFname"+i;
-            admin.Lname="ALname"+i;
-            admin.email="Aemail"+i+"@email.com";
-            admin.phone="Aphone"+i;
-            admin.age=1;
-            admin.gender="Amale";
-            admin.address="Aaddress"+i;
-            admin.password="Apassword"+i;
-            adminList.add(admin);
-            admin.displayUserInfo();
-        }
-    }
-
     public  Restaurant getRestaurant(String name){
         try {
             for (Restaurant restaurant:restaurants){
@@ -52,19 +31,7 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
         }
         return null;
     }
-    public  int getMenu(String name,Restaurant restaurant){
-        int i;
-        try {
-            for (i=0;i<restaurant.menu.size();i++){
-                if(name.equals(restaurant.menu.get(i).name)){
-                    return i;
-                }
-            }
-        }catch (Exception e){
-            System.out.println("Dish not found");
-        }
-        return 10000;
-    }
+
     public  void addRestaurant(){
         Restaurant restaurant=new Restaurant();
         Scanner scanner=new Scanner(System.in);
@@ -138,26 +105,6 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
         }
 
 
-    }
-
-    /**
-     * This method is used to make the Admin remove
-     */
-    public  void deleteDish(String nameOfRestaurant,String nameOfDish){
-        Restaurant restaurant=getRestaurant(nameOfRestaurant);
-        if (restaurant==null){
-            System.out.println("Restaurant is not found");
-        }
-        else{
-            int index=getMenu(nameOfDish,restaurant);
-            if (index==10000){
-                System.out.println("Dish not found");
-            }
-            else{
-                restaurant.menu.remove(index);
-            }
-
-        }
     }
 
     /**
@@ -252,11 +199,9 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
         try {
             FileReader fr = new FileReader("Data/AdminData.csv");
             BufferedReader br = new BufferedReader(fr);
-//            int i=0;
             br.readLine();
             String line;
             while((line = br.readLine()) != null) {
-//                System.out.println(line);
                 Admin admin= new Admin();
                 admin.Fname=line.split(",")[0];
                 admin.Lname=line.split(",")[1];
@@ -267,8 +212,6 @@ public class Admin extends User implements saveAndLoad, checkNumberValid {
                 admin.address=line.split(",")[6];
                 admin.password=line.split(",")[7];
                 adminList.add(admin);
-//                System.out.println(userList.get(i).toString());
-//                i++;
             }
             fr.close();
         }catch (FileNotFoundException e) {

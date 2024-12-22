@@ -44,7 +44,7 @@ public class AdminLoginController {
         for (int i = 0; i < adminList.size(); i++) {
             if (email.equalsIgnoreCase(adminList.get(i).getEmail())) {
                 if (password.equals(adminList.get(i).getPassword())) {
-                    label.setText("Login successful, nigga");
+                    label.setText("Login successful");
                     label.setTextFill(Color.GREEN);
                     admin = adminList.get(i);
                     Info.admin = admin;
@@ -76,10 +76,5 @@ public class AdminLoginController {
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void initialize() {
-        Email.setText("eyadadmin@gmaiL.com");
-        Password.setText("Hello@test123");
     }
 }

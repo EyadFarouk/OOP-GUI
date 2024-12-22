@@ -43,14 +43,6 @@ public class Review {
     }
 
     /**
-     * gets the score rating
-     * @return returns score rating
-     */
-    public double getScoreRating() {
-        return scoreRating;
-    }
-
-    /**
      * This method is used to set the review of the delivery staff member and calculate the average rating
      * @param deliveryStaff the deliveryman's first name
      * @param Rating the rating you want to give him

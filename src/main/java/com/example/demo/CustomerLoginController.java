@@ -45,7 +45,7 @@ public class CustomerLoginController{
         for (int i = 0; i < userList.size(); i++) {
             if (email.equalsIgnoreCase(userList.get(i).getEmail())) {
                 if (password.equals(userList.get(i).getPassword())) {
-                    label.setText("Login successful, nigga");
+                    label.setText("Login successful");
                     label.setTextFill(Color.GREEN);
                     customer = userList.get(i);
                     Info.customer = customer;
@@ -81,10 +81,5 @@ public class CustomerLoginController{
         scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
-    }
-
-    public void initialize() {
-        Email.setText("talaat@emaiL.com");
-        Password.setText("password7");
     }
 }

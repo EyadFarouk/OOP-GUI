@@ -3,6 +3,7 @@ package com.example.demo;
 import Project.Orders.AllOrders;
 import Project.Orders.Order;
 import Project.Orders.OrderState;
+import Project.Payment.Card;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,6 +21,8 @@ import java.time.format.DateTimeFormatter;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import static Project.Payment.Card.cardList;
+
 public class CardPaymentController {
     @FXML
     private Button submitButton;
@@ -33,7 +36,6 @@ public class CardPaymentController {
     private Stage stage;
     private Parent root;
 
-    static ArrayList<Card> cardList = new ArrayList<>();
     private final String REGEX_DIGITS = "\\d+";
 
     YearMonth currentDate = YearMonth.now();
@@ -116,9 +118,12 @@ public class CardPaymentController {
 
     public void submit(ActionEvent event) throws IOException {
         if (!submitButton.isDisabled()) {
-            Card newCard = new Card(CardNum, Cvv, ExpDate);
+            Card newCard = new Card();
+            newCard.setCardNum(cardnum.getText());
+            newCard.setCvv(cvv.getText());
+            newCard.setExpirationDate(expirationDate.getText());
+            newCard.setMoneyAvailable(Double.parseDouble(addMoneyField.getText()));
             cardList.add(newCard);
-            Info.saveData();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardDone.fxml"));
             Parent root = fxmlLoader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -153,23 +158,4 @@ public class CardPaymentController {
         stage.setScene(scene);
         stage.show();
     }
-
-    public static class Card {
-        private String cardNumber;
-        private String cvv;
-        private String expirationDate;
-
-        public Card(String cardNumber, String cvv, String expirationDate) {
-            this.cardNumber = cardNumber;
-            this.cvv = cvv;
-            this.expirationDate = expirationDate;
-        }
-
-        public String getCardNumber() {
-            return cardNumber;
-        }
-
-
-    }
-
 }

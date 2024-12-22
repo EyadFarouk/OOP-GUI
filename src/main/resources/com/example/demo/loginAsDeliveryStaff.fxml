@@ -24,6 +24,17 @@
          </font>
       </Label>
       <TextField fx:id="Email" layoutX="403.0" layoutY="214.0" prefHeight="24.0" prefWidth="184.0" />
+      <PasswordField fx:id="Password" layoutX="403.0" layoutY="291.0" prefHeight="24.0" prefWidth="184.0" />
+      <Button layoutX="382.0" layoutY="403.0" mnemonicParsing="false" onAction="#checkIfValid" prefHeight="49.0" prefWidth="148.0" text="Login">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="384.0" layoutY="484.0" mnemonicParsing="false" onAction="#switchSceneToWelcome" prefHeight="49.0" prefWidth="148.0" text="Back">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
       <Label layoutX="337.0" layoutY="214.0" text="Email :">
          <font>
             <Font size="19.0" />
@@ -34,17 +45,6 @@
             <Font size="19.0" />
          </font>
       </Label>
-      <Button layoutX="384.0" layoutY="484.0" mnemonicParsing="false" onAction="#switchSceneToWelcome" prefHeight="49.0" prefWidth="148.0" text="Back">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
-      <Button layoutX="382.0" layoutY="403.0" mnemonicParsing="false" onAction="#checkIfValid" prefHeight="49.0" prefWidth="148.0" text="Login">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
-      <PasswordField fx:id="Password" layoutX="403.0" layoutY="291.0" prefHeight="24.0" prefWidth="184.0" />
       <Label fx:id="label" layoutX="301.0" layoutY="123.0" prefHeight="90.0" prefWidth="293.0" textAlignment="CENTER" wrapText="true">
          <font>
             <Font size="24.0" />

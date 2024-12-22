@@ -25,16 +25,6 @@
             <Font size="25.0" />
          </font>
       </Label>
-      <Button layoutX="541.0" layoutY="485.0" mnemonicParsing="false" onAction="#switchSceneToAdminLoginOrSignUp" prefHeight="49.0" prefWidth="148.0" text="Back">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
-      <Button alignment="CENTER" layoutX="539.0" layoutY="404.0" mnemonicParsing="false" onAction="#validateInputAndSignUp" prefHeight="49.0" prefWidth="148.0" text="Login">
-         <font>
-            <Font size="26.0" />
-         </font>
-      </Button>
       <TextField fx:id="firstName" layoutX="573.0" layoutY="50.0" onInputMethodTextChanged="#checkIfFnameValid" onKeyReleased="#checkIfFnameValid" prefHeight="24.0" prefWidth="184.0" promptText="Enter your first name">
          <cursor>
             <Cursor fx:constant="TEXT" />
@@ -111,6 +101,16 @@
             <Font size="19.0" />
          </font>
       </Label>
+      <Button alignment="CENTER" layoutX="539.0" layoutY="404.0" mnemonicParsing="false" onAction="#validateInputAndSignUp" prefHeight="49.0" prefWidth="148.0" text="Login">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <Button layoutX="541.0" layoutY="485.0" mnemonicParsing="false" onAction="#switchSceneToAdminLoginOrSignUp" prefHeight="49.0" prefWidth="148.0" text="Back">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
       <Label fx:id="Fname_label" alignment="CENTER" layoutX="1.0" layoutY="45.0" prefHeight="34.0" prefWidth="384.0" textAlignment="CENTER" textFill="RED" textOverrun="CLIP">
          <font>
             <Font name="System Bold Italic" size="15.0" />

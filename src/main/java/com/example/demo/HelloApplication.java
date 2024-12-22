@@ -31,6 +31,7 @@ public class HelloApplication extends Application {
     public static void main(String[] args) {
         launch();
         Info.saveData();
+        System.exit(0);
     }
     public void exit(Stage stage){
 

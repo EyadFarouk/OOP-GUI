@@ -3,10 +3,7 @@ package Project.Resturants;
 
 import Project.Interfaces.Checker;
 
-import java.awt.*;
 import java.io.*;
-import java.net.URI;
-import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 /**
@@ -74,64 +71,11 @@ public class Restaurant extends Menu implements Comparable<Restaurant>, Checker 
             }
         }
     }
-    /**
-     * this method has @param restaurants and @param i to get restaurant in list
-     * */
-    public Restaurant getRestaurant(int i,List<Restaurant>restaurants){
-        return restaurants.get(i-1);
-    }
-    /**
-     * this method has @param menu and @param i to get dish from list
-     * */
-    public Dish getDish(int i,List<Dish>menu){
-        return menu.get(i-1);
-    }
-    /**
-     * this method has @param menu  and @param name to get dish with her name
-     * */
-    public Dish searchAboutDishWithName(String name,List<Dish>menu){
-        for (Dish dish : menu) {
-            if (name.equals(dish.name)) {
-                System.out.println("dish is available");
-                return dish;
-            }
-        }
-        System.out.println("dish is not available");
-        return null;
 
-    }
-    /**
-     * this method has @param menu and @param description to get dish with her description
-     * */
-    public Dish searchAboutDishWithDescription(String description,List<Dish>menu){
-        for (Dish dish : menu) {
-            if (description.equals(dish.description)) {
-                System.out.println("dish is available");
-                return dish;
-            }
-
-        }
-        System.out.println("dish is not available ");
-        return null;
-    }
-    /**
-     * this method @param menu and @param categories to get dish with type
-     * */
-    public Dish searchAboutDishWithCategories(String categories,List<Dish>menu){
-        for (Dish dish : menu) {
-            if (categories.equals(dish.categories)) {
-                System.out.println("dish is available");
-                return dish;
-            }
-
-        }
-        System.out.println("dish is not available");
-        return null;
-    }
     /**
      * this method to get actual location of restaurant on Google map
      * */
-    public void getLocation() throws URISyntaxException, IOException {
+    public void getLocation(){
         RestaurantLocation restaurantLocation=new RestaurantLocation();
         restaurantLocation.uri=this.uri;
         restaurantLocation.start();
