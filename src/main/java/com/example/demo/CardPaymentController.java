@@ -118,7 +118,7 @@ public class CardPaymentController {
         if (!submitButton.isDisabled()) {
             Card newCard = new Card(CardNum, Cvv, ExpDate);
             cardList.add(newCard);
-
+            Info.saveData();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardDone.fxml"));
             Parent root = fxmlLoader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -142,7 +142,7 @@ public class CardPaymentController {
     }
 
     public void Cardremoveorselect(ActionEvent event) throws IOException {
-        switchScene(event, "Cardremoveorselect.fxml");
+        switchScene(event, "cardremoveorselect.fxml");
     }
 
     private void switchScene(ActionEvent event, String fxmlFile) throws IOException {
