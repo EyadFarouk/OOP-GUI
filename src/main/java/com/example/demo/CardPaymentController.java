@@ -3,7 +3,6 @@ package com.example.demo;
 import Project.Orders.AllOrders;
 import Project.Orders.Order;
 import Project.Orders.OrderState;
-import Project.Payment.Card;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -74,12 +73,7 @@ public class CardPaymentController {
 
             updateValidationLabels(isCardValid, isCvvValid, isExpDateValid, isMoneyValid);
 
-            if (isCardValid && isCvvValid && isExpDateValid && isMoneyValid) {
-                submitButton.setDisable(false);
-            } else {
-                submitButton.setDisable(true);
-            }
-
+            submitButton.setDisable(!(isCardValid && isCvvValid && isExpDateValid && isMoneyValid));
         } catch (Exception e) {
             cardcheck.setText("An error occurred. Please try again.");
             cardcheck.setTextFill(Color.RED);
@@ -122,6 +116,9 @@ public class CardPaymentController {
 
     public void submit(ActionEvent event) throws IOException {
         if (!submitButton.isDisabled()) {
+            Card newCard = new Card(CardNum, Cvv, ExpDate);
+            cardList.add(newCard);
+
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("cardDone.fxml"));
             Parent root = fxmlLoader.load();
             stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -144,7 +141,6 @@ public class CardPaymentController {
         stage.show();
     }
 
-
     public void Cardremoveorselect(ActionEvent event) throws IOException {
         switchScene(event, "Cardremoveorselect.fxml");
     }
@@ -157,4 +153,23 @@ public class CardPaymentController {
         stage.setScene(scene);
         stage.show();
     }
+
+    public static class Card {
+        private String cardNumber;
+        private String cvv;
+        private String expirationDate;
+
+        public Card(String cardNumber, String cvv, String expirationDate) {
+            this.cardNumber = cardNumber;
+            this.cvv = cvv;
+            this.expirationDate = expirationDate;
+        }
+
+        public String getCardNumber() {
+            return cardNumber;
+        }
+
+
+    }
+
 }
