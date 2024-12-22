@@ -45,23 +45,7 @@ public class AddRestaurant {
 
     @FXML
     private void handleSubmit(ActionEvent event) throws IOException {
-        // Validate all input fields
-        if (!validateAllInputs()) {
-            return; // If any input is invalid, stop processing
-        }
-
-        // Create a new Restaurant object
-        Restaurant restaurant = new Restaurant();
-
-        // Get values from input fields
-        restaurant.name = restaurantName.getText();
-        restaurant.address = restaurantAddress.getText();
-        restaurant.contactInformation = contactInfo.getText();
-        restaurant.rating = Double.parseDouble(restaurantRating.getText());
-        restaurant.uri = URLLocation.getText();
-
-        // Add the restaurant to the list
-        restaurants.add(restaurant);
+        validateAndAdd();
         switchSceneToadmin(event);
     }
 
@@ -121,6 +105,7 @@ public class AddRestaurant {
         stage.show();
     }
     public void AddMenuScene(ActionEvent event) throws IOException {
+        validateAndAdd();
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("addMenu.fxml"));
         Parent root = fxmlLoader.load();
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -129,8 +114,28 @@ public class AddRestaurant {
         stage.show();
     }
 
+    private void validateAndAdd(){
+        // Validate all input fields
+        if (!validateAllInputs()) {
+            return; // If any input is invalid, stop processing
+        }
+
+        // Create a new Restaurant object
+        Restaurant restaurant = new Restaurant();
+
+        // Get values from input fields
+        restaurant.name = restaurantName.getText();
+        restaurant.address = restaurantAddress.getText();
+        restaurant.contactInformation = contactInfo.getText();
+        restaurant.rating = Double.parseDouble(restaurantRating.getText());
+        restaurant.uri = URLLocation.getText();
+
+        // Add the restaurant to the list
+        restaurants.add(restaurant);
+    }
 
     private void showAlert(String title, String message) {
+
         Alert alert = new Alert(Alert.AlertType.ERROR);
         alert.setTitle(title);
         alert.setHeaderText(null);

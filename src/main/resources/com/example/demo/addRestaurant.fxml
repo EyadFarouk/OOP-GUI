@@ -29,10 +29,10 @@
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <TextField fx:id="contactInfo" promptText="Contact information" styleClass="textField" GridPane.rowIndex="1" />
-                  <TextField fx:id="restaurantAddress" minHeight="-Infinity" promptText="Restaurant address" styleClass="textField" GridPane.columnIndex="1" />
-                  <TextField fx:id="restaurantRating" promptText="Restaurant rating (0-5)" styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                   <TextField fx:id="restaurantName" promptText="Restaurant name" styleClass="textField" />
+                  <TextField fx:id="restaurantAddress" minHeight="-Infinity" promptText="Restaurant address" styleClass="textField" GridPane.columnIndex="1" />
+                  <TextField fx:id="contactInfo" promptText="Contact information" styleClass="textField" GridPane.rowIndex="1" />
+                  <TextField fx:id="restaurantRating" promptText="Restaurant rating (0-5)" styleClass="textField" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                </children>
             </GridPane>
             <TextField fx:id="URLLocation" maxWidth="400.0" promptText="URL Location" styleClass="textField" />

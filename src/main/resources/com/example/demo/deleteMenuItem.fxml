@@ -23,6 +23,8 @@
             <RowConstraints maxHeight="43.0" minHeight="8.0" prefHeight="43.0" vgrow="SOMETIMES" />
             </rowConstraints>
             <children>
+            <TextField fx:id="RestaurantText" alignment="CENTER" promptText="Enter the name of the restaurant" />
+            <TextField fx:id="MenuText" alignment="CENTER" promptText="Enter the menu you want to delete" GridPane.rowIndex="2" />
                 <Button fx:id="delMenu" mnemonicParsing="false" onAction="#delete" prefHeight="33.0" prefWidth="320.0" styleClass="btn" stylesheets="@../../../CSS/homePageAdmin.css" text="Delete item" GridPane.halignment="CENTER" GridPane.rowIndex="3">
                     <font>
                         <Font name="System Bold" size="18.0" />
@@ -31,13 +33,11 @@
                     <font>
                         <Font name="System Bold" size="18.0" />
                     </font></Button>
-            <TextField fx:id="MenuText" alignment="CENTER" promptText="Enter the menu you want to delete" GridPane.rowIndex="2" />
             <Label fx:id="Menulabel" alignment="CENTER" opacity="0.0" text="No item with that name" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
                <font>
                   <Font name="System Bold" size="23.0" />
                </font>
             </Label>
-            <TextField fx:id="RestaurantText" alignment="CENTER" promptText="Enter the name of the restaurant" />
             <Label fx:id="Restaurantlabel" alignment="CENTER" opacity="0.0" text="No restaurant with that name" textAlignment="CENTER" textFill="RED" GridPane.columnIndex="1" GridPane.halignment="CENTER">
                <font>
                   <Font name="System Bold" size="20.0" />
